@@ -45,8 +45,6 @@ public class MainForm extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
@@ -318,10 +316,6 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setText("Price");
-
-        jTextField4.setEnabled(false);
-
         jTable3.setForeground(new java.awt.Color(60, 63, 65));
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -389,13 +383,8 @@ public class MainForm extends javax.swing.JFrame {
                         .addGroup(pnlReceivingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(42, 42, 42)
-                        .addGroup(pnlReceivingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlReceivingLayout.createSequentialGroup()
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(42, 42, 42)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel6))))
+                        .addGap(197, 197, 197)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(154, Short.MAX_VALUE))
         );
         pnlReceivingLayout.setVerticalGroup(
@@ -408,19 +397,17 @@ public class MainForm extends javax.swing.JFrame {
                 .addGap(46, 46, 46)
                 .addGroup(pnlReceivingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel6))
+                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlReceivingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
                 .addGap(36, 36, 36)
                 .addGroup(pnlReceivingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
-                .addContainerGap(24, Short.MAX_VALUE))
+                    .addComponent(jButton2)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         tpMain.addTab("Receiving", pnlReceiving);
@@ -1308,33 +1295,6 @@ public class MainForm extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private float getUpdatedPrice(){
-        float price = 0;
-        
-        if (jComboBox2.getSelectedIndex() != -1){
-            try {
-                connection = DriverManager.getConnection(URL, USER, PASSWORD);
-                PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM TABLE_PRODUCT WHERE ID = ?");
-                preparedStatement.setInt(1, ProductArrayList.get(jComboBox2.getSelectedIndex()));
-
-                ResultSet resultSet = preparedStatement.executeQuery();
-                while (resultSet.next()) {
-                    float raw = resultSet.getFloat("PRICE");
-                    float mul = Float.parseFloat(jTextField3.getText());
-                    float total = raw * mul;
-                    price = total;
-                }
-
-                resultSet.close();
-                preparedStatement.close();
-                connection.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-        
-        return price;
-    }
     
     private void jTextField3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyReleased
         String text = jTextField3.getText();
@@ -1347,12 +1307,11 @@ public class MainForm extends javax.swing.JFrame {
         jTextField3.setText(newText.toString());
 
         if (evt.getKeyCode() == evt.VK_ENTER){
-            jTextField4.setText(""+getUpdatedPrice());
         }
     }//GEN-LAST:event_jTextField3KeyReleased
 
     private void jComboBox2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox2ItemStateChanged
-        jTextField4.setText(""+getUpdatedPrice());
+        
     }//GEN-LAST:event_jComboBox2ItemStateChanged
 
     public static void main(String args[]) {
@@ -1393,7 +1352,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -1416,7 +1374,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
