@@ -89,6 +89,15 @@ public class MainForm extends javax.swing.JFrame {
         jTable7 = new javax.swing.JTable();
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField11 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jTextField12 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        jLabel16 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(30, 30, 30));
@@ -174,7 +183,7 @@ public class MainForm extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(305, Short.MAX_VALUE))
+                .addContainerGap(329, Short.MAX_VALUE))
         );
         pnlInventoryLayout.setVerticalGroup(
             pnlInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,38 +202,15 @@ public class MainForm extends javax.swing.JFrame {
         jTable2.setForeground(new java.awt.Color(60, 63, 65));
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
-                "ID", "Date", "Customer"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, true, true
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         jTable2.setSelectionForeground(new java.awt.Color(255, 255, 255));
         jTable2.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane2.setViewportView(jTable2);
-        if (jTable2.getColumnModel().getColumnCount() > 0) {
-            jTable2.getColumnModel().getColumn(0).setResizable(false);
-            jTable2.getColumnModel().getColumn(1).setResizable(false);
-            jTable2.getColumnModel().getColumn(2).setResizable(false);
-        }
 
         jLabel5.setText("Search:");
 
@@ -235,9 +221,19 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Edit");
+        jButton3.setText("Save");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Delete");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -249,16 +245,18 @@ public class MainForm extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel4Layout.createSequentialGroup()
-                            .addComponent(jLabel5)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnNewSales))))
-                .addContainerGap(305, Short.MAX_VALUE))
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(716, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnNewSales)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -380,7 +378,7 @@ public class MainForm extends javax.swing.JFrame {
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addContainerGap(208, Short.MAX_VALUE))
         );
         pnlReceivingLayout.setVerticalGroup(
             pnlReceivingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -418,29 +416,17 @@ public class MainForm extends javax.swing.JFrame {
 
         tblCategoryList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "ID", "Name"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-        });
+        ));
         tblCategoryList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane4.setViewportView(tblCategoryList);
-        if (tblCategoryList.getColumnModel().getColumnCount() > 0) {
-            tblCategoryList.getColumnModel().getColumn(0).setResizable(false);
-            tblCategoryList.getColumnModel().getColumn(1).setResizable(false);
-        }
 
         jLabel9.setText("Category List");
 
@@ -476,7 +462,7 @@ public class MainForm extends javax.swing.JFrame {
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(234, Short.MAX_VALUE))
+                .addContainerGap(258, Short.MAX_VALUE))
         );
         pnlCategoryLayout.setVerticalGroup(
             pnlCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -503,38 +489,13 @@ public class MainForm extends javax.swing.JFrame {
 
         tblProductList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "ID", "SKU", "Category", "Name", "Price"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, true, true, true, true
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         jScrollPane5.setViewportView(tblProductList);
-        if (tblProductList.getColumnModel().getColumnCount() > 0) {
-            tblProductList.getColumnModel().getColumn(0).setResizable(false);
-            tblProductList.getColumnModel().getColumn(1).setResizable(false);
-            tblProductList.getColumnModel().getColumn(2).setResizable(false);
-            tblProductList.getColumnModel().getColumn(3).setResizable(false);
-            tblProductList.getColumnModel().getColumn(4).setResizable(false);
-        }
 
         jLabel10.setText("SKU");
 
@@ -594,14 +555,14 @@ public class MainForm extends javax.swing.JFrame {
                                     .addComponent(lblProductName, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblProductName1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(58, 58, 58)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                         .addGroup(pnlProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlProductLayout.createSequentialGroup()
                                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnProductSave, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(80, Short.MAX_VALUE))))
+                        .addContainerGap(92, Short.MAX_VALUE))))
         );
         pnlProductLayout.setVerticalGroup(
             pnlProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -656,37 +617,13 @@ public class MainForm extends javax.swing.JFrame {
 
         tblSupplierList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "ID", "Name", "Contact", "Address"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, true, true, true
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         jScrollPane7.setViewportView(tblSupplierList);
-        if (tblSupplierList.getColumnModel().getColumnCount() > 0) {
-            tblSupplierList.getColumnModel().getColumn(0).setResizable(false);
-            tblSupplierList.getColumnModel().getColumn(1).setResizable(false);
-            tblSupplierList.getColumnModel().getColumn(2).setResizable(false);
-            tblSupplierList.getColumnModel().getColumn(3).setResizable(false);
-        }
 
         jButton10.setText("Delete");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
@@ -717,7 +654,7 @@ public class MainForm extends javax.swing.JFrame {
                         .addComponent(jTextField10)
                         .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                 .addGroup(pnlSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlSupplierLayout.createSequentialGroup()
                         .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -794,33 +731,105 @@ public class MainForm extends javax.swing.JFrame {
         }
 
         jButton11.setText("Delete");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
 
-        jButton12.setText("New User");
+        jButton12.setText("Add");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+
+        jButton15.setText("Save");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Name");
+
+        jLabel7.setText("Username");
+
+        jLabel15.setText("Password");
+
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ADMIN", "CASHIER" }));
+
+        jLabel16.setText("Account Type");
 
         javax.swing.GroupLayout pnlUsersLayout = new javax.swing.GroupLayout(pnlUsers);
         pnlUsers.setLayout(pnlUsersLayout);
         pnlUsersLayout.setHorizontalGroup(
             pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlUsersLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
                 .addGroup(pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 617, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlUsersLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlUsersLayout.createSequentialGroup()
+                                .addGroup(pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel7))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel15)
+                                    .addComponent(jTextField11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(pnlUsersLayout.createSequentialGroup()
+                                .addGroup(pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel16)
+                                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUsersLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(102, 102, 102)))
+                .addGroup(pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlUsersLayout.createSequentialGroup()
                         .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(219, Short.MAX_VALUE))
+                        .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         pnlUsersLayout.setVerticalGroup(
             pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlUsersLayout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlUsersLayout.createSequentialGroup()
+                        .addGroup(pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel16))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel15))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton12)
+                        .addGap(0, 148, Short.MAX_VALUE))
+                    .addGroup(pnlUsersLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton11)
-                    .addComponent(jButton12))
-                .addContainerGap(29, Short.MAX_VALUE))
+                    .addComponent(jButton15))
+                .addGap(19, 19, 19))
         );
 
         tpMain.addTab("Users", pnlUsers);
@@ -868,8 +877,49 @@ public class MainForm extends javax.swing.JFrame {
     public ArrayList<Integer> ProductArrayList = new ArrayList<>();
     public ArrayList<Integer> SupplierArrayList = new ArrayList<>();
     
+    private void updateSalesTable(){
+        DefaultTableModel model = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return column != 0;
+            }
+        };
+
+        try {
+            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM TABLE_SALES");
+
+            int columnCount = resultSet.getMetaData().getColumnCount();
+            for (int i = 1; i <= columnCount; i++) {
+                model.addColumn(resultSet.getMetaData().getColumnName(i));
+            }
+
+            while (resultSet.next()) {
+                Object[] rowData = new Object[columnCount];
+                for (int i = 0; i < columnCount; i++) {
+                    rowData[i] = resultSet.getObject(i + 1);
+                }
+                model.addRow(rowData);
+            }
+
+            resultSet.close();
+            statement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally{
+            jTable2.setModel(model);
+        }
+    }
+    
     private void updateCategoryTable(){
-        DefaultTableModel model = new DefaultTableModel();
+        DefaultTableModel model = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return column != 0;
+            }
+        };
 
         try {
             Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
@@ -899,8 +949,49 @@ public class MainForm extends javax.swing.JFrame {
         }
     }
     
+    private void updateUsersTable(){
+        DefaultTableModel model = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return column != 0;
+            }
+        };
+
+        try {
+            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM TABLE_ACCOUNTS");
+
+            int columnCount = resultSet.getMetaData().getColumnCount();
+            for (int i = 1; i <= columnCount; i++) {
+                model.addColumn(resultSet.getMetaData().getColumnName(i));
+            }
+
+            while (resultSet.next()) {
+                Object[] rowData = new Object[columnCount];
+                for (int i = 0; i < columnCount; i++) {
+                    rowData[i] = resultSet.getObject(i + 1);
+                }
+                model.addRow(rowData);
+            }
+
+            resultSet.close();
+            statement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally{
+            jTable7.setModel(model);
+        }
+    }
+    
     private void updateProductTable(){
-        DefaultTableModel model = new DefaultTableModel();
+        DefaultTableModel model = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return column != 0;
+            }
+        };
 
         try {
             Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
@@ -937,7 +1028,12 @@ public class MainForm extends javax.swing.JFrame {
     }
     
     private void updateSupplierTable(){
-        DefaultTableModel model = new DefaultTableModel();
+        DefaultTableModel model = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return column != 0;
+            }
+        };
 
         try {
             Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
@@ -976,7 +1072,7 @@ public class MainForm extends javax.swing.JFrame {
                 
                 break;
             case "Sales":
-                
+                updateSalesTable();
                 break;
             case "Receiving":
                 try {
@@ -1051,7 +1147,8 @@ public class MainForm extends javax.swing.JFrame {
                 updateSupplierTable();
                 break;
             case "Users":
-                
+                updateUsersTable();
+                jComboBox4.setSelectedItem(null);
                 break;
         }
     }//GEN-LAST:event_tpMainStateChanged
@@ -1089,6 +1186,11 @@ public class MainForm extends javax.swing.JFrame {
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         int row = tblCategoryList.getSelectedRow();
         int column = tblCategoryList.getSelectedColumn();
+        
+        if (row == -1){
+            JOptionPane.showMessageDialog(null, "You must select a record for this action", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
 
         DefaultTableModel model = (DefaultTableModel) tblCategoryList.getModel();
         Object newValue = model.getValueAt(row, column);
@@ -1102,7 +1204,7 @@ public class MainForm extends javax.swing.JFrame {
             preparedStatement.setObject(1, newValue);
             preparedStatement.setInt(2, id);
             preparedStatement.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Category has been saved.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Updated records.", "Success", JOptionPane.INFORMATION_MESSAGE);
             preparedStatement.close();
             connection.close();
         } catch (SQLException ex) {
@@ -1115,28 +1217,29 @@ public class MainForm extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         int selectedRow = tblCategoryList.getSelectedRow();
 
-        if (selectedRow != -1) {
-            int id = (int) tblCategoryList.getValueAt(selectedRow, 0);
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Please select a row to delete.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        int id = (int) tblCategoryList.getValueAt(selectedRow, 0);
 
-            try {
-                Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-                String sql = "DELETE FROM TABLE_CATEGORY WHERE ID = ?";
-                PreparedStatement preparedStatement = connection.prepareStatement(sql);
-                preparedStatement.setInt(1, id);
-                preparedStatement.executeUpdate();
-                preparedStatement.close();
-                connection.close();
-                DefaultTableModel model = (DefaultTableModel) tblCategoryList.getModel();
-                model.removeRow(selectedRow);
-                
-                JOptionPane.showMessageDialog(null, "Record has been deleted.", "Success", JOptionPane.INFORMATION_MESSAGE);
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            } finally {
-                updateCategoryTable();
-            }
-        } else {
-            JOptionPane.showMessageDialog(this, "Please select a row to delete.", "No Row Selected", JOptionPane.WARNING_MESSAGE);
+        try {
+            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            String sql = "DELETE FROM TABLE_CATEGORY WHERE ID = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+            connection.close();
+            DefaultTableModel model = (DefaultTableModel) tblCategoryList.getModel();
+            model.removeRow(selectedRow);
+
+            JOptionPane.showMessageDialog(null, "Record has been deleted.", "Success", JOptionPane.INFORMATION_MESSAGE);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            updateCategoryTable();
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -1175,28 +1278,29 @@ public class MainForm extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         int selectedRow = tblProductList.getSelectedRow();
+        
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Please select a row to delete.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
 
-        if (selectedRow != -1) {
-            int id = (int) tblProductList.getValueAt(selectedRow, 0);
+        int id = (int) tblProductList.getValueAt(selectedRow, 0);
 
-            try {
-                Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-                String sql = "DELETE FROM TABLE_PRODUCT WHERE ID = ?";
-                PreparedStatement preparedStatement = connection.prepareStatement(sql);
-                preparedStatement.setInt(1, id);
-                preparedStatement.executeUpdate();
-                preparedStatement.close();
-                connection.close();
-                DefaultTableModel model = (DefaultTableModel) tblProductList.getModel();
-                model.removeRow(selectedRow);
-                
-            } catch (SQLException ex) {
-                ex.printStackTrace();
-            } finally {
-                updateCategoryTable();
-            }
-        } else {
-            JOptionPane.showMessageDialog(this, "Please select a row to delete.", "No Row Selected", JOptionPane.WARNING_MESSAGE);
+        try {
+            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            String sql = "DELETE FROM TABLE_PRODUCT WHERE ID = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+            connection.close();
+            DefaultTableModel model = (DefaultTableModel) tblProductList.getModel();
+            model.removeRow(selectedRow);
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            updateProductTable();
         }
     }//GEN-LAST:event_jButton7ActionPerformed
 
@@ -1204,6 +1308,11 @@ public class MainForm extends javax.swing.JFrame {
         int row = tblProductList.getSelectedRow();
         int column = tblProductList.getSelectedColumn();
 
+        if (row == -1){
+            JOptionPane.showMessageDialog(null, "You must select a record for this action", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
         DefaultTableModel model = (DefaultTableModel) tblProductList.getModel();
         Object newValue = model.getValueAt(row, column);
         int id = (int) model.getValueAt(row, 0);
@@ -1216,6 +1325,7 @@ public class MainForm extends javax.swing.JFrame {
             preparedStatement.setObject(1, newValue);
             preparedStatement.setInt(2, id);
             preparedStatement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Updated records.", "Success", JOptionPane.INFORMATION_MESSAGE);
             preparedStatement.close();
             connection.close();
         } catch (SQLException ex) {
@@ -1257,27 +1367,28 @@ public class MainForm extends javax.swing.JFrame {
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         int selectedRow = tblSupplierList.getSelectedRow();
 
-        if (selectedRow != -1) {
-            int id = (int) tblSupplierList.getValueAt(selectedRow, 0);
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Please select a row to delete.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        int id = (int) tblSupplierList.getValueAt(selectedRow, 0);
 
-            try {
-                Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-                String sql = "DELETE FROM TABLE_SUPPLIER WHERE ID = ?";
-                PreparedStatement preparedStatement = connection.prepareStatement(sql);
-                preparedStatement.setInt(1, id);
-                preparedStatement.executeUpdate();
-                preparedStatement.close();
-                connection.close();
-                DefaultTableModel model = (DefaultTableModel) tblSupplierList.getModel();
-                model.removeRow(selectedRow);
-                
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            } finally {
-                updateSupplierTable();
-            }
-        } else {
-            JOptionPane.showMessageDialog(this, "Please select a row to delete.", "No Row Selected", JOptionPane.WARNING_MESSAGE);
+        try {
+            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            String sql = "DELETE FROM TABLE_SUPPLIER WHERE ID = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+            connection.close();
+            DefaultTableModel model = (DefaultTableModel) tblSupplierList.getModel();
+            model.removeRow(selectedRow);
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            updateSupplierTable();
         }
     }//GEN-LAST:event_jButton10ActionPerformed
 
@@ -1285,6 +1396,12 @@ public class MainForm extends javax.swing.JFrame {
         int row = tblSupplierList.getSelectedRow();
         int column = tblSupplierList.getSelectedColumn();
 
+        if (row == -1){
+            JOptionPane.showMessageDialog(null, "You must select a record for this action", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+            
+        
         DefaultTableModel model = (DefaultTableModel) tblSupplierList.getModel();
         Object newValue = model.getValueAt(row, column);
         int id = (int) model.getValueAt(row, 0);
@@ -1297,6 +1414,7 @@ public class MainForm extends javax.swing.JFrame {
             preparedStatement.setObject(1, newValue);
             preparedStatement.setInt(2, id);
             preparedStatement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Updated records.", "Success", JOptionPane.INFORMATION_MESSAGE);
             preparedStatement.close();
             connection.close();
         } catch (SQLException ex) {
@@ -1376,6 +1494,176 @@ public class MainForm extends javax.swing.JFrame {
         jTextField8.setText(newText.toString());
     }//GEN-LAST:event_jTextField8KeyReleased
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        int row = jTable2.getSelectedRow();
+        int column = jTable2.getSelectedColumn();
+        
+        if (row == -1){
+            JOptionPane.showMessageDialog(null, "You must select a record for this action", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+        Object newValue = model.getValueAt(row, column);
+        int id = (int) model.getValueAt(row, 0);
+
+        try {
+            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            String columnName = jTable2.getColumnName(column);
+            String sql = "UPDATE TABLE_SALES SET " + columnName + " = ? WHERE ID = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setObject(1, newValue);
+            preparedStatement.setInt(2, id);
+            preparedStatement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Updated records.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            updateSalesTable();
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        int selectedRow = jTable2.getSelectedRow();
+
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Please select a row to delete.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        int id = (int) jTable2.getValueAt(selectedRow, 0);
+
+        try {
+            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            String sql = "DELETE FROM TABLE_SALES WHERE ID = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+            connection.close();
+            DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+            model.removeRow(selectedRow);
+
+            JOptionPane.showMessageDialog(null, "Record has been deleted.", "Success", JOptionPane.INFORMATION_MESSAGE);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            updateSalesTable();
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        int selectedRow = jTable7.getSelectedRow();
+
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Please select a row to delete.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        int id = (int) jTable7.getValueAt(selectedRow, 0);
+
+        try {
+            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            String sql = "DELETE FROM TABLE_ACCOUNTS WHERE ID = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+            connection.close();
+            DefaultTableModel model = (DefaultTableModel) jTable7.getModel();
+            model.removeRow(selectedRow);
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            updateUsersTable();
+        }
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        int row = jTable7.getSelectedRow();
+        int column = jTable7.getSelectedColumn();
+
+        if (row == -1){
+            JOptionPane.showMessageDialog(null, "You must select a record for this action", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+            
+        
+        DefaultTableModel model = (DefaultTableModel) jTable7.getModel();
+        Object newValue = model.getValueAt(row, column);
+        int id = (int) model.getValueAt(row, 0);
+
+        try {
+            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            String columnName = jTable7.getColumnName(column);
+            String sql = "UPDATE TABLE_ACCOUNTS SET " + columnName + " = ? WHERE ID = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setObject(1, newValue);
+            preparedStatement.setInt(2, id);
+            preparedStatement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Updated records.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            updateUsersTable();
+        }
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        String name = jTextField4.getText();
+        String username = jTextField12.getText();
+        String password = jTextField11.getText();
+        
+         if (jComboBox4.getSelectedIndex() == -1){
+            JOptionPane.showMessageDialog(null, "Select the Account Type.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+         
+        String account_type = jComboBox4.getSelectedItem().toString();
+        
+        if (name.replace(" ", "").toLowerCase().equals("")){
+            JOptionPane.showMessageDialog(null, "Enter the name.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        if (username.replace(" ", "").toLowerCase().equals("")){
+            JOptionPane.showMessageDialog(null, "Enter the username.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        if (password.replace(" ", "").toLowerCase().equals("")){
+            JOptionPane.showMessageDialog(null, "Enter the password.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        String tableName = "TABLE_ACCOUNTS";
+        try {
+            connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            String sql = "INSERT INTO " + tableName + " (NAME, USERNAME, PASSWORD, ACC_TYPE) VALUES (?, ?, ?, ?)";
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, name);
+            statement.setString(2, username);
+            statement.setString(3, password);
+            statement.setString(4, account_type);
+            statement.executeUpdate();
+            statement.close();
+            connection.close();
+            updateUsersTable();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            jComboBox4.setSelectedItem(null);
+            jTextField4.setText("");
+            jTextField12.setText("");
+            jTextField11.setText("");
+        }
+    }//GEN-LAST:event_jButton12ActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -1393,6 +1681,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1404,16 +1693,21 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -1434,8 +1728,11 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
