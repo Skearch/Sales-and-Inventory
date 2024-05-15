@@ -9,8 +9,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+import org.jdatepicker.impl.JDatePanelImpl;
+import org.jdatepicker.impl.JDatePickerImpl;
+import org.jdatepicker.impl.UtilDateModel;
+
         
-public class MainForm extends javax.swing.JFrame {
+public class MainForm extends javax.swing.JFrame  {
     public MainForm() {
         initComponents();
     }
@@ -35,7 +39,6 @@ public class MainForm extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         btnNewSales = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         pnlReceiving = new javax.swing.JPanel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -54,9 +57,7 @@ public class MainForm extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
         tblCategoryList = new javax.swing.JTable();
-        jLabel9 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
         pnlProduct = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         tblProductList = new javax.swing.JTable();
@@ -70,7 +71,6 @@ public class MainForm extends javax.swing.JFrame {
         jTextField8 = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
-        btnProductSave = new javax.swing.JButton();
         pnlSupplier = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jTextField9 = new javax.swing.JTextField();
@@ -83,13 +83,11 @@ public class MainForm extends javax.swing.JFrame {
         jScrollPane7 = new javax.swing.JScrollPane();
         tblSupplierList = new javax.swing.JTable();
         jButton10 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
         pnlUsers = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
         jTable7 = new javax.swing.JTable();
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
         jTextField4 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jTextField11 = new javax.swing.JTextField();
@@ -98,6 +96,15 @@ public class MainForm extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jComboBox4 = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jLabel17 = new javax.swing.JLabel();
+        jTextField13 = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jTextField14 = new javax.swing.JTextField();
+        jTextField15 = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(30, 30, 30));
@@ -141,33 +148,15 @@ public class MainForm extends javax.swing.JFrame {
         jTable1.setForeground(new java.awt.Color(60, 63, 65));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "ID", "Product", "Stock", "In stock", "Out stock"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-        });
+        ));
         jTable1.setSelectionForeground(new java.awt.Color(255, 255, 255));
         jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
-            jTable1.getColumnModel().getColumn(4).setResizable(false);
-        }
 
         jLabel4.setText("Search:");
 
@@ -177,23 +166,23 @@ public class MainForm extends javax.swing.JFrame {
             pnlInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlInventoryLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnlInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlInventoryLayout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(329, Short.MAX_VALUE))
+                .addContainerGap(514, Short.MAX_VALUE))
         );
         pnlInventoryLayout.setVerticalGroup(
             pnlInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInventoryLayout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(pnlInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -210,6 +199,11 @@ public class MainForm extends javax.swing.JFrame {
         ));
         jTable2.setSelectionForeground(new java.awt.Color(255, 255, 255));
         jTable2.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jTable2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTable2KeyReleased(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
 
         jLabel5.setText("Search:");
@@ -218,13 +212,6 @@ public class MainForm extends javax.swing.JFrame {
         btnNewSales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNewSalesActionPerformed(evt);
-            }
-        });
-
-        jButton3.setText("Save");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
             }
         });
 
@@ -242,38 +229,31 @@ public class MainForm extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(716, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnNewSales)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnNewSales))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 768, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(372, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(8, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel5))
-                    .addComponent(btnNewSales, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
-                .addGap(35, 35, 35))
+                    .addComponent(jButton4)
+                    .addComponent(btnNewSales))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout pnlSalesLayout = new javax.swing.GroupLayout(pnlSales);
@@ -313,14 +293,14 @@ public class MainForm extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Product", "Supplier", "Qty", "Price", "Amount"
+                "Product", "ProductID", "Supplier", "Qty", "Price", "Amount"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Float.class, java.lang.Float.class
+                java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Float.class, java.lang.Float.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -342,6 +322,7 @@ public class MainForm extends javax.swing.JFrame {
             jTable3.getColumnModel().getColumn(2).setResizable(false);
             jTable3.getColumnModel().getColumn(3).setResizable(false);
             jTable3.getColumnModel().getColumn(4).setResizable(false);
+            jTable3.getColumnModel().getColumn(5).setResizable(false);
         }
 
         jButton1.setText("Add to List");
@@ -352,6 +333,11 @@ public class MainForm extends javax.swing.JFrame {
         });
 
         jButton2.setText("Save");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlReceivingLayout = new javax.swing.GroupLayout(pnlReceiving);
         pnlReceiving.setLayout(pnlReceivingLayout);
@@ -378,7 +364,7 @@ public class MainForm extends javax.swing.JFrame {
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(208, Short.MAX_VALUE))
+                .addContainerGap(468, Short.MAX_VALUE))
         );
         pnlReceivingLayout.setVerticalGroup(
             pnlReceivingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -400,7 +386,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addGroup(pnlReceivingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton2)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(198, Short.MAX_VALUE))
         );
 
         tpMain.addTab("Receiving", pnlReceiving);
@@ -426,21 +412,17 @@ public class MainForm extends javax.swing.JFrame {
             }
         ));
         tblCategoryList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tblCategoryList.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tblCategoryListKeyReleased(evt);
+            }
+        });
         jScrollPane4.setViewportView(tblCategoryList);
-
-        jLabel9.setText("Category List");
 
         jButton6.setText("Delete");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
-            }
-        });
-
-        jButton13.setText("Save");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
             }
         });
 
@@ -454,35 +436,32 @@ public class MainForm extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
                     .addComponent(jTextField5))
-                .addGap(101, 101, 101)
+                .addGap(95, 95, 95)
                 .addGroup(pnlCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlCategoryLayout.createSequentialGroup()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 914, Short.MAX_VALUE)
+                        .addContainerGap())
                     .addGroup(pnlCategoryLayout.createSequentialGroup()
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(258, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         pnlCategoryLayout.setVerticalGroup(
             pnlCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlCategoryLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(pnlCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlCategoryLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6)
-                    .addComponent(jButton13))
-                .addContainerGap(34, Short.MAX_VALUE))
+                        .addComponent(jButton5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnlCategoryLayout.createSequentialGroup()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addComponent(jButton6)
+                .addContainerGap())
         );
 
         tpMain.addTab("Category", pnlCategory);
@@ -495,6 +474,11 @@ public class MainForm extends javax.swing.JFrame {
 
             }
         ));
+        tblProductList.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tblProductListKeyReleased(evt);
+            }
+        });
         jScrollPane5.setViewportView(tblProductList);
 
         jLabel10.setText("SKU");
@@ -525,44 +509,30 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
-        btnProductSave.setText("Save");
-        btnProductSave.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProductSaveActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout pnlProductLayout = new javax.swing.GroupLayout(pnlProduct);
         pnlProduct.setLayout(pnlProductLayout);
         pnlProductLayout.setHorizontalGroup(
             pnlProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlProductLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addGroup(pnlProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlProductLayout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(pnlProductLayout.createSequentialGroup()
-                        .addGroup(pnlProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField6)
-                            .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField7)
-                            .addComponent(jTextField8)
-                            .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(pnlProductLayout.createSequentialGroup()
-                                .addGroup(pnlProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel11)
-                                    .addComponent(lblProductName, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblProductName1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(58, 58, 58)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
-                        .addGroup(pnlProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlProductLayout.createSequentialGroup()
-                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnProductSave, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(92, Short.MAX_VALUE))))
+                .addGroup(pnlProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jTextField6)
+                        .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextField7)
+                        .addComponent(jTextField8)
+                        .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(pnlProductLayout.createSequentialGroup()
+                            .addGroup(pnlProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel11)
+                                .addComponent(lblProductName, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblProductName1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(58, 58, 58)))
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
+                .addGroup(pnlProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 829, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         pnlProductLayout.setVerticalGroup(
             pnlProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -585,14 +555,11 @@ public class MainForm extends javax.swing.JFrame {
                 .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton8)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(245, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlProductLayout.createSequentialGroup()
-                .addContainerGap(60, Short.MAX_VALUE)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton7)
-                    .addComponent(btnProductSave))
+                .addComponent(jScrollPane5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton7)
                 .addGap(11, 11, 11))
         );
 
@@ -623,19 +590,17 @@ public class MainForm extends javax.swing.JFrame {
 
             }
         ));
+        tblSupplierList.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tblSupplierListKeyReleased(evt);
+            }
+        });
         jScrollPane7.setViewportView(tblSupplierList);
 
         jButton10.setText("Delete");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);
-            }
-        });
-
-        jButton14.setText("Save");
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton14ActionPerformed(evt);
             }
         });
 
@@ -654,25 +619,22 @@ public class MainForm extends javax.swing.JFrame {
                         .addComponent(jTextField10)
                         .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addGap(36, 36, 36)
                 .addGroup(pnlSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 843, Short.MAX_VALUE)
                     .addGroup(pnlSupplierLayout.createSequentialGroup()
                         .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(381, 381, 381))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSupplierLayout.createSequentialGroup()
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         pnlSupplierLayout.setVerticalGroup(
             pnlSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlSupplierLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlSupplierLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel13)
@@ -685,50 +647,29 @@ public class MainForm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton9))
                     .addGroup(pnlSupplierLayout.createSequentialGroup()
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap()
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(pnlSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton10)
-                            .addComponent(jButton14))))
-                .addContainerGap(23, Short.MAX_VALUE))
+                        .addComponent(jButton10)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tpMain.addTab("Supplier", pnlSupplier);
 
         jTable7.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "ID", "Name", "Username", "Password", "User Type"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, true, true, true, true
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        ));
+        jTable7.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTable7KeyReleased(evt);
             }
         });
         jScrollPane8.setViewportView(jTable7);
-        if (jTable7.getColumnModel().getColumnCount() > 0) {
-            jTable7.getColumnModel().getColumn(0).setResizable(false);
-            jTable7.getColumnModel().getColumn(1).setResizable(false);
-            jTable7.getColumnModel().getColumn(2).setResizable(false);
-            jTable7.getColumnModel().getColumn(3).setResizable(false);
-            jTable7.getColumnModel().getColumn(4).setResizable(false);
-        }
 
         jButton11.setText("Delete");
         jButton11.addActionListener(new java.awt.event.ActionListener() {
@@ -744,13 +685,6 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
-        jButton15.setText("Save");
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton15ActionPerformed(evt);
-            }
-        });
-
         jLabel6.setText("Name");
 
         jLabel7.setText("Username");
@@ -761,23 +695,33 @@ public class MainForm extends javax.swing.JFrame {
 
         jLabel16.setText("Account Type");
 
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane9.setViewportView(jTextArea2);
+
+        jLabel17.setText("Address");
+
+        jLabel18.setText("Employee ID");
+
+        jLabel20.setText("Birth Date");
+
+        jTextField15.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField15KeyReleased(evt);
+            }
+        });
+
+        jLabel21.setText("Age");
+
         javax.swing.GroupLayout pnlUsersLayout = new javax.swing.GroupLayout(pnlUsers);
         pnlUsers.setLayout(pnlUsersLayout);
         pnlUsersLayout.setHorizontalGroup(
             pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlUsersLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUsersLayout.createSequentialGroup()
                 .addGroup(pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlUsersLayout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addGroup(pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlUsersLayout.createSequentialGroup()
-                                .addGroup(pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel7))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel15)
-                                    .addComponent(jTextField11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(pnlUsersLayout.createSequentialGroup()
                                 .addGroup(pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -785,19 +729,32 @@ public class MainForm extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel16)
-                                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(18, 18, 18))
+                                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(pnlUsersLayout.createSequentialGroup()
+                                .addGroup(pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jScrollPane9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                        .addComponent(jTextField12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                                        .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(jLabel17))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel15)
+                                    .addComponent(jTextField11)
+                                    .addComponent(jTextField13)
+                                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField14)
+                                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUsersLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(102, 102, 102)))
+                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlUsersLayout.createSequentialGroup()
-                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(27, Short.MAX_VALUE))
+                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 754, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         pnlUsersLayout.setVerticalGroup(
             pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -811,7 +768,7 @@ public class MainForm extends javax.swing.JFrame {
                         .addGroup(pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
                             .addComponent(jLabel15))
@@ -819,17 +776,32 @@ public class MainForm extends javax.swing.JFrame {
                         .addGroup(pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(pnlUsersLayout.createSequentialGroup()
+                                .addComponent(jLabel17)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane9))
+                            .addGroup(pnlUsersLayout.createSequentialGroup()
+                                .addComponent(jLabel18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel20)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel21)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton12)
-                        .addGap(0, 148, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(pnlUsersLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton11)
-                    .addComponent(jButton15))
-                .addGap(19, 19, 19))
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton11)))
+                .addContainerGap())
         );
 
         tpMain.addTab("Users", pnlUsers);
@@ -841,16 +813,15 @@ public class MainForm extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(tpMain)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tpMain)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(tpMain, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(tpMain))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -861,9 +832,7 @@ public class MainForm extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -950,12 +919,7 @@ public class MainForm extends javax.swing.JFrame {
     }
     
     private void updateUsersTable(){
-        DefaultTableModel model = new DefaultTableModel() {
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return column != 0;
-            }
-        };
+        DefaultTableModel model = new DefaultTableModel();
 
         try {
             Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
@@ -1063,15 +1027,60 @@ public class MainForm extends javax.swing.JFrame {
         }
     }
     
+    private void updateInventoryTable(){
+        DefaultTableModel model = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return column != 0;
+            }
+        };
+
+        try {
+            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT TABLE_INVENTORY.ID, TABLE_INVENTORY., FROM TABLE_INVENTORY");
+            
+                        ResultSet resultSet = statement.executeQuery("SELECT TABLE_PRODUCT.ID, TABLE_PRODUCT.SKU, TABLE_CATEGORY.NAME, TABLE_PRODUCT.NAME, TABLE_PRODUCT.PRICE "
+                                                        + "FROM TABLE_PRODUCT "
+                                                        + "INNER JOIN TABLE_CATEGORY "
+                                                        + "ON TABLE_PRODUCT.CATEGORY = TABLE_CATEGORY.ID");
+
+            int columnCount = resultSet.getMetaData().getColumnCount();
+            for (int i = 1; i <= columnCount; i++) {
+                model.addColumn(resultSet.getMetaData().getColumnName(i));
+            }
+
+            while (resultSet.next()) {
+                Object[] rowData = new Object[columnCount];
+                for (int i = 0; i < columnCount; i++) {
+                    rowData[i] = resultSet.getObject(i + 1);
+                }
+                model.addRow(rowData);
+            }
+
+            resultSet.close();
+            statement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally{
+            jTable1.setModel(model);
+        }
+    }
+    
     private void tpMainStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tpMainStateChanged
         String tabSelected = tpMain.getTitleAt(tpMain.getSelectedIndex());
         lblTabName.setText(tabSelected);
         
         switch (tabSelected) {
             case "Inventory":
+                jTextField1.setText("");
                 
+                updateInventoryTable();
                 break;
             case "Sales":
+                jTextField2.setText("");
+                
                 updateSalesTable();
                 break;
             case "Receiving":
@@ -1119,14 +1128,19 @@ public class MainForm extends javax.swing.JFrame {
 
                 break;
             case "Category":
+                jTextField5.setText("");
+                
                 updateCategoryTable();
                 break;
             case "Product":
+                jTextField7.setText("");
+                jTextField6.setText("");
+                jTextField8.setText("");
+                jComboBox3.removeAllItems();
+                CategoryArrayList.clear();
+                
                 updateProductTable();
                 try {
-                    jComboBox3.removeAllItems();
-                    CategoryArrayList.clear();
-                    
                     connection = DriverManager.getConnection(URL, USER, PASSWORD);
                     Statement statement = connection.createStatement();
 
@@ -1144,11 +1158,17 @@ public class MainForm extends javax.swing.JFrame {
                 } catch (SQLException ex) { }
                 break;
             case "Supplier":
+                jTextField9.setText("");
+                jTextField10.setText("");
+                jTextArea1.setText("");
+                
                 updateSupplierTable();
                 break;
             case "Users":
-                updateUsersTable();
                 jComboBox4.setSelectedItem(null);
+                jTextField4.setText("");
+                
+                updateUsersTable();
                 break;
         }
     }//GEN-LAST:event_tpMainStateChanged
@@ -1175,44 +1195,15 @@ public class MainForm extends javax.swing.JFrame {
             statement.executeUpdate();
             statement.close();
             connection.close();
-            updateCategoryTable();
+            
+            jTextField5.setText("");
+            
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         } finally {
-            jTextField5.setText("");
-        }
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        int row = tblCategoryList.getSelectedRow();
-        int column = tblCategoryList.getSelectedColumn();
-        
-        if (row == -1){
-            JOptionPane.showMessageDialog(null, "You must select a record for this action", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        DefaultTableModel model = (DefaultTableModel) tblCategoryList.getModel();
-        Object newValue = model.getValueAt(row, column);
-        int id = (int) model.getValueAt(row, 0);
-
-        try {
-            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            String columnName = tblCategoryList.getColumnName(column);
-            String sql = "UPDATE TABLE_CATEGORY SET " + columnName + " = ? WHERE ID = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setObject(1, newValue);
-            preparedStatement.setInt(2, id);
-            preparedStatement.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Updated records.", "Success", JOptionPane.INFORMATION_MESSAGE);
-            preparedStatement.close();
-            connection.close();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        } finally {
             updateCategoryTable();
         }
-    }//GEN-LAST:event_jButton13ActionPerformed
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         int selectedRow = tblCategoryList.getSelectedRow();
@@ -1304,37 +1295,6 @@ public class MainForm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void btnProductSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductSaveActionPerformed
-        int row = tblProductList.getSelectedRow();
-        int column = tblProductList.getSelectedColumn();
-
-        if (row == -1){
-            JOptionPane.showMessageDialog(null, "You must select a record for this action", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        
-        DefaultTableModel model = (DefaultTableModel) tblProductList.getModel();
-        Object newValue = model.getValueAt(row, column);
-        int id = (int) model.getValueAt(row, 0);
-
-        try {
-            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            String columnName = tblProductList.getColumnName(column);
-            String sql = "UPDATE TABLE_PRODUCT SET " + columnName + " = ? WHERE ID = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setObject(1, newValue);
-            preparedStatement.setInt(2, id);
-            preparedStatement.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Updated records.", "Success", JOptionPane.INFORMATION_MESSAGE);
-            preparedStatement.close();
-            connection.close();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        } finally {
-            updateProductTable();
-        }
-    }//GEN-LAST:event_btnProductSaveActionPerformed
-
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         try {
             String name = jTextField9.getText();
@@ -1392,38 +1352,6 @@ public class MainForm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton10ActionPerformed
 
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        int row = tblSupplierList.getSelectedRow();
-        int column = tblSupplierList.getSelectedColumn();
-
-        if (row == -1){
-            JOptionPane.showMessageDialog(null, "You must select a record for this action", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-            
-        
-        DefaultTableModel model = (DefaultTableModel) tblSupplierList.getModel();
-        Object newValue = model.getValueAt(row, column);
-        int id = (int) model.getValueAt(row, 0);
-
-        try {
-            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            String columnName = tblSupplierList.getColumnName(column);
-            String sql = "UPDATE TABLE_SUPPLIER SET " + columnName + " = ? WHERE ID = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setObject(1, newValue);
-            preparedStatement.setInt(2, id);
-            preparedStatement.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Updated records.", "Success", JOptionPane.INFORMATION_MESSAGE);
-            preparedStatement.close();
-            connection.close();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        } finally {
-            updateSupplierTable();
-        }
-    }//GEN-LAST:event_jButton14ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (jTextField3.getText().replace(" ", "").toLowerCase().equals("")){
             JOptionPane.showMessageDialog(null, "Please provide quantity.", "Warning", JOptionPane.WARNING_MESSAGE);
@@ -1468,7 +1396,7 @@ public class MainForm extends javax.swing.JFrame {
         float total = productPrice * quantity;
         
         DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
-        model.addRow(new Object[]{productName, supplierName, quantity, productPrice, total});
+        model.addRow(new Object[]{productName, productID, supplierName, quantity, productPrice, total});
     }//GEN-LAST:event_jButton1ActionPerformed
 
     
@@ -1493,37 +1421,6 @@ public class MainForm extends javax.swing.JFrame {
         }
         jTextField8.setText(newText.toString());
     }//GEN-LAST:event_jTextField8KeyReleased
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        int row = jTable2.getSelectedRow();
-        int column = jTable2.getSelectedColumn();
-        
-        if (row == -1){
-            JOptionPane.showMessageDialog(null, "You must select a record for this action", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
-        Object newValue = model.getValueAt(row, column);
-        int id = (int) model.getValueAt(row, 0);
-
-        try {
-            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            String columnName = jTable2.getColumnName(column);
-            String sql = "UPDATE TABLE_SALES SET " + columnName + " = ? WHERE ID = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setObject(1, newValue);
-            preparedStatement.setInt(2, id);
-            preparedStatement.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Updated records.", "Success", JOptionPane.INFORMATION_MESSAGE);
-            preparedStatement.close();
-            connection.close();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        } finally {
-            updateSalesTable();
-        }
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         int selectedRow = jTable2.getSelectedRow();
@@ -1582,24 +1479,155 @@ public class MainForm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton11ActionPerformed
 
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        String name = jTextField4.getText();
+        String username = jTextField12.getText();
+        String password = jTextField11.getText();
+        String address = jTextArea2.getText();
+        String employeeid = jTextField13.getText();
+        String birthdate = jTextField14.getText();
+        String ageRaw = jTextField15.getText();
+        
+        if (jComboBox4.getSelectedIndex() == -1){
+            JOptionPane.showMessageDialog(null, "Select the Account Type.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+         
+        String account_type = jComboBox4.getSelectedItem().toString();
+        
+        if (ageRaw.replace(" ", "").toLowerCase().equals("")){
+            JOptionPane.showMessageDialog(null, "Enter age.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        if (employeeid.replace(" ", "").toLowerCase().equals("")){
+            JOptionPane.showMessageDialog(null, "Enter employee id.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        if (birthdate.replace(" ", "").toLowerCase().equals("")){
+            JOptionPane.showMessageDialog(null, "Enter birthdate.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        if (address.replace(" ", "").toLowerCase().equals("")){
+            JOptionPane.showMessageDialog(null, "Enter address.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        int age = Integer.parseInt(ageRaw);
+        
+        if (name.replace(" ", "").toLowerCase().equals("")){
+            JOptionPane.showMessageDialog(null, "Enter name.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        if (username.replace(" ", "").toLowerCase().equals("")){
+            JOptionPane.showMessageDialog(null, "Enter username.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        if (password.replace(" ", "").toLowerCase().equals("")){
+            JOptionPane.showMessageDialog(null, "Enter password.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        String tableName = "TABLE_ACCOUNTS";
+        try {
+            connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            String sql = "INSERT INTO " + tableName + " (NAME, USERNAME, PASSWORD, ACC_TYPE, AGE, ADDRESS, BIRTHDATE, EMP_ID) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, name);
+            statement.setString(2, username);
+            statement.setString(3, password);
+            statement.setString(4, account_type);
+            statement.setInt(5, age);
+            statement.setString(6, address);
+            statement.setString(7, birthdate);
+            statement.setString(8, employeeid);
+            statement.executeUpdate();
+            statement.close();
+            connection.close();
+            
+            jComboBox4.setSelectedItem(null);
+            jTextField4.setText("");
+            jTextField12.setText("");
+            jTextField11.setText("");
+            
+            jTextArea2.setText("");
+            jTextField12.setText("");
+            jTextField11.setText("");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            updateUsersTable();
+        }
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jTextField15KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField15KeyReleased
+        String text = jTextField15.getText();
+        StringBuilder newText = new StringBuilder();
+        for (char c : text.toCharArray()) {
+            if (Character.isDigit(c)) {
+                newText.append(c);
+            }
+        }
+        jTextField15.setText(newText.toString());
+    }//GEN-LAST:event_jTextField15KeyReleased
+
+    private void jTable7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable7KeyReleased
+        
+        int keyCode = evt.getKeyCode();
+        if (keyCode != 10)
+            return;
+        
         int row = jTable7.getSelectedRow();
         int column = jTable7.getSelectedColumn();
 
-        if (row == -1){
-            JOptionPane.showMessageDialog(null, "You must select a record for this action", "Warning", JOptionPane.WARNING_MESSAGE);
+        if (row == -1)
             return;
-        }
-            
-        
+
         DefaultTableModel model = (DefaultTableModel) jTable7.getModel();
+        Object newValue = model.getValueAt(row, column);
+        String username = (String) model.getValueAt(row, 1);
+
+        try {
+            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            String columnName = jTable7.getColumnName(column);
+            String sql = "UPDATE TABLE_ACCOUNTS SET " + columnName + " = ? WHERE USERNAME = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setObject(1, newValue);
+            preparedStatement.setString(2, username);
+            preparedStatement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Updated records.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            updateUsersTable();
+        }
+    }//GEN-LAST:event_jTable7KeyReleased
+
+    private void tblSupplierListKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblSupplierListKeyReleased
+        int keyCode = evt.getKeyCode();
+        if (keyCode != 10)
+            return;
+        
+        int row = tblSupplierList.getSelectedRow();
+        int column = tblSupplierList.getSelectedColumn();
+
+        if (row == -1)
+            return;
+        
+        DefaultTableModel model = (DefaultTableModel) tblSupplierList.getModel();
         Object newValue = model.getValueAt(row, column);
         int id = (int) model.getValueAt(row, 0);
 
         try {
             Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            String columnName = jTable7.getColumnName(column);
-            String sql = "UPDATE TABLE_ACCOUNTS SET " + columnName + " = ? WHERE ID = ?";
+            String columnName = tblSupplierList.getColumnName(column);
+            String sql = "UPDATE TABLE_SUPPLIER SET " + columnName + " = ? WHERE ID = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setObject(1, newValue);
             preparedStatement.setInt(2, id);
@@ -1610,59 +1638,156 @@ public class MainForm extends javax.swing.JFrame {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         } finally {
-            updateUsersTable();
+            updateSupplierTable();
         }
-    }//GEN-LAST:event_jButton15ActionPerformed
+    }//GEN-LAST:event_tblSupplierListKeyReleased
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        String name = jTextField4.getText();
-        String username = jTextField12.getText();
-        String password = jTextField11.getText();
-        
-         if (jComboBox4.getSelectedIndex() == -1){
-            JOptionPane.showMessageDialog(null, "Select the Account Type.", "Warning", JOptionPane.WARNING_MESSAGE);
+    private void tblProductListKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblProductListKeyReleased
+        int keyCode = evt.getKeyCode();
+        if (keyCode != 10)
             return;
-        }
-         
-        String account_type = jComboBox4.getSelectedItem().toString();
         
-        if (name.replace(" ", "").toLowerCase().equals("")){
-            JOptionPane.showMessageDialog(null, "Enter the name.", "Warning", JOptionPane.WARNING_MESSAGE);
+        int row = tblProductList.getSelectedRow();
+        int column = tblProductList.getSelectedColumn();
+
+        if (row == -1)
             return;
-        }
         
-        if (username.replace(" ", "").toLowerCase().equals("")){
-            JOptionPane.showMessageDialog(null, "Enter the username.", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        
-        if (password.replace(" ", "").toLowerCase().equals("")){
-            JOptionPane.showMessageDialog(null, "Enter the password.", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        
-        String tableName = "TABLE_ACCOUNTS";
+        DefaultTableModel model = (DefaultTableModel) tblProductList.getModel();
+        Object newValue = model.getValueAt(row, column);
+        int id = (int) model.getValueAt(row, 0);
+
         try {
-            connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            String sql = "INSERT INTO " + tableName + " (NAME, USERNAME, PASSWORD, ACC_TYPE) VALUES (?, ?, ?, ?)";
-            statement = connection.prepareStatement(sql);
-            statement.setString(1, name);
-            statement.setString(2, username);
-            statement.setString(3, password);
-            statement.setString(4, account_type);
-            statement.executeUpdate();
-            statement.close();
+            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            String columnName = tblProductList.getColumnName(column);
+            String sql = "UPDATE TABLE_PRODUCT SET " + columnName + " = ? WHERE ID = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setObject(1, newValue);
+            preparedStatement.setInt(2, id);
+            preparedStatement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Updated records.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            preparedStatement.close();
             connection.close();
-            updateUsersTable();
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         } finally {
-            jComboBox4.setSelectedItem(null);
-            jTextField4.setText("");
-            jTextField12.setText("");
-            jTextField11.setText("");
+            updateProductTable();
         }
-    }//GEN-LAST:event_jButton12ActionPerformed
+    }//GEN-LAST:event_tblProductListKeyReleased
+
+    private void tblCategoryListKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblCategoryListKeyReleased
+        int keyCode = evt.getKeyCode();
+        if (keyCode != 10)
+            return;
+        
+        int row = tblCategoryList.getSelectedRow();
+        int column = tblCategoryList.getSelectedColumn();
+
+        if (row == -1)
+            return;
+        
+        DefaultTableModel model = (DefaultTableModel) tblCategoryList.getModel();
+        Object newValue = model.getValueAt(row, column);
+        int id = (int) model.getValueAt(row, 0);
+
+        try {
+            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            String columnName = tblCategoryList.getColumnName(column);
+            String sql = "UPDATE TABLE_CATEGORY SET " + columnName + " = ? WHERE ID = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setObject(1, newValue);
+            preparedStatement.setInt(2, id);
+            preparedStatement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Updated records.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            updateCategoryTable();
+        }
+    }//GEN-LAST:event_tblCategoryListKeyReleased
+
+    private void jTable2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable2KeyReleased
+        int keyCode = evt.getKeyCode();
+        if (keyCode != 10)
+            return;
+        
+        int row = jTable2.getSelectedRow();
+        int column = jTable2.getSelectedColumn();
+
+        if (row == -1)
+            return;
+        
+        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+        Object newValue = model.getValueAt(row, column);
+        int id = (int) model.getValueAt(row, 0);
+
+        try {
+            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            String columnName = jTable2.getColumnName(column);
+            String sql = "UPDATE TABLE_SALES SET " + columnName + " = ? WHERE ID = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setObject(1, newValue);
+            preparedStatement.setInt(2, id);
+            preparedStatement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Updated records.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            updateSalesTable();
+        }
+    }//GEN-LAST:event_jTable2KeyReleased
+
+    
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
+
+        int rowCount = model.getRowCount();
+
+        if (rowCount == 0){
+            JOptionPane.showMessageDialog(this, "Receiving list is empty, add a product first.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        for (int row = 0; row < rowCount; row++) {
+            int productID = (Integer) model.getValueAt(row, 1);
+            int productQty = (Integer) model.getValueAt(row, 3);
+            
+            try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
+                String selectSql = "SELECT INSTOCK FROM TABLE_INVENTORY WHERE PRODUCT = ?";
+                try (PreparedStatement selectStmt = connection.prepareStatement(selectSql)) {
+                    selectStmt.setInt(1, productID);
+                    try (ResultSet resultSet = selectStmt.executeQuery()) {
+                        if (resultSet.next()) {
+                            int currentStock = resultSet.getInt("INSTOCK") + productQty;
+
+                            String updateSql = "UPDATE TABLE_INVENTORY SET INSTOCK = ? WHERE PRODUCT = ?";
+                            try (PreparedStatement updateStmt = connection.prepareStatement(updateSql)) {
+                                updateStmt.setInt(1, currentStock);
+                                updateStmt.setInt(2, productID);
+                                updateStmt.executeUpdate();
+                            }
+                        } else {
+                            String insertSql = "INSERT INTO TABLE_INVENTORY (PRODUCT, STOCK, INSTOCK, OUTSTOCK) VALUES (?, 0, ?, 0)";
+                            try (PreparedStatement insertStmt = connection.prepareStatement(insertSql)) {
+                                insertStmt.setInt(1, productID);
+                                insertStmt.setInt(2, productQty);
+                                insertStmt.executeUpdate();
+                            }
+                        }
+                    }
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Error updating inventory: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        
+        jTable3.removeAll();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1674,16 +1799,11 @@ public class MainForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnNewSales;
-    private javax.swing.JButton btnProductSave;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -1702,14 +1822,17 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel4;
@@ -1721,15 +1844,20 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable7;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
+    private javax.swing.JTextField jTextField13;
+    private javax.swing.JTextField jTextField14;
+    private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
