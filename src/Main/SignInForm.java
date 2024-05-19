@@ -6,9 +6,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import javax.swing.table.DefaultTableModel;
 
 public class SignInForm extends javax.swing.JFrame {
     public SignInForm() {
@@ -57,7 +54,7 @@ public class SignInForm extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(49, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblPassword)
                     .addComponent(lblUsername)
@@ -67,7 +64,7 @@ public class SignInForm extends javax.swing.JFrame {
                         .addComponent(btnSignin2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(tfUsername)
                     .addComponent(jPasswordField1))
-                .addGap(37, 37, 37))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,13 +91,13 @@ public class SignInForm extends javax.swing.JFrame {
         boolean isValid = false;
 
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-             PreparedStatement ps = conn.prepareStatement("SELECT ACC_TYPE FROM ADMINISTRATOR.TABLE_ACCOUNTS WHERE USERNAME = ? AND PASSWORD = ?")) {
+             PreparedStatement ps = conn.prepareStatement("SELECT ACCOUNT_TYPE FROM ADMINISTRATOR.TABLE_ACCOUNTS WHERE USERNAME = ? AND PASSWORD = ?")) {
 
             ps.setString(1, username);
             ps.setString(2, password);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    String accountType = rs.getString("ACC_TYPE");
+                    String accountType = rs.getString("ACCOUNT_TYPE");
                     if (accType.equals(accountType)) {
                         isValid = true;
                     }
@@ -119,6 +116,7 @@ public class SignInForm extends javax.swing.JFrame {
         String password = new String(jPasswordField1.getPassword());
 
         if (validateCredentials(username, password, "ADMIN")) {
+            admin = true;
             new MainForm().setVisible(true);
             this.dispose();
         } else {

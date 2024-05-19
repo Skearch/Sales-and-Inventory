@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 
 public class Databases {
     
+    public static Boolean admin = false;
+    
     public static Connection connection;
     public static PreparedStatement statement;
     public static ResultSet resultSet;
