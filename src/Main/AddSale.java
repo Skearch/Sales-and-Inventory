@@ -87,7 +87,7 @@ public class AddSale extends javax.swing.JFrame {
                 java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Float.class, java.lang.Float.class
             };
             boolean[] canEdit = new boolean [] {
-                true, false, false, true, true, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -99,6 +99,7 @@ public class AddSale extends javax.swing.JFrame {
             }
         });
         jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
             jTable1.getColumnModel().getColumn(0).setResizable(false);
@@ -210,22 +211,17 @@ public class AddSale extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void btnAddtoListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddtoListActionPerformed
-        if (jTextField1.getText().replace(" ", "").toLowerCase().equals("")){
+        if (jTextField1.getText().replace(" ", "").toLowerCase().equals("")) {
             JOptionPane.showMessageDialog(null, "Please enter the customer.", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        
-        if (jTextField3.getText().replace(" ", "").toLowerCase().equals("")){
+
+        if (jTextField3.getText().replace(" ", "").toLowerCase().equals("")) {
             JOptionPane.showMessageDialog(null, "Please provide quantity.", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
-        if (jComboBox2.getSelectedIndex() == -1){
-            JOptionPane.showMessageDialog(null, "You must select a product.", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        
-        if (jComboBox2.getSelectedIndex() == -1){
+        if (jComboBox2.getSelectedIndex() == -1) {
             JOptionPane.showMessageDialog(null, "You must select a product.", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
@@ -233,27 +229,55 @@ public class AddSale extends javax.swing.JFrame {
         String customer = jTextField1.getText();
         int productID = ProductArrayList.get(jComboBox2.getSelectedIndex());
         float productPrice = 0;
+        int stockQuantity = 0;
         String productName = jComboBox2.getSelectedItem().toString();
 
-        try{
+        try {
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
             Statement statement = connection.createStatement();
 
             resultSet = statement.executeQuery("SELECT * FROM TABLE_PRODUCT WHERE ID = " + productID);
-            while (resultSet.next()) {
+            if (resultSet.next()) {
                 productPrice = resultSet.getFloat("PRICE");
+                stockQuantity = resultSet.getInt("STOCK_QUANTITY");
             }
 
             resultSet.close();
             statement.close();
-        }catch(SQLException ex){
+        } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            return;
         }
 
-        int quantity = Integer.parseInt(jTextField3.getText());
-        float total = productPrice * quantity;
+        int quantity;
+        try {
+            quantity = Integer.parseInt(jTextField3.getText());
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Invalid quantity format.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if (quantity <= 0)
+        {
+            JOptionPane.showMessageDialog(null, "The quantity cannot be lower than 0.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        int currentQuantityInTable = 0;
+        for (int i = 0; i < model.getRowCount(); i++) {
+            int tableProductID = (int) model.getValueAt(i, 2);
+            if (tableProductID == productID) {
+                currentQuantityInTable += (int) model.getValueAt(i, 3);
+            }
+        }
+
+        if (currentQuantityInTable + quantity > stockQuantity) {
+            JOptionPane.showMessageDialog(null, "The product " + productName + " only has " + stockQuantity + " in stock", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        float total = productPrice * quantity;
         model.addRow(new Object[]{customer, productName, productID, quantity, productPrice, total});
     }//GEN-LAST:event_btnAddtoListActionPerformed
 

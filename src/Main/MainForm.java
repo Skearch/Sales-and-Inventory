@@ -912,7 +912,7 @@ public class MainForm extends javax.swing.JFrame  {
                     connection = DriverManager.getConnection(URL, USER, PASSWORD);
                     Statement statement2 = connection.createStatement();
 
-                    resultSet = statement2.executeQuery("SELECT * FROM TABLE_PRODUCT");
+                    resultSet = statement2.executeQuery("SELECT * FROM TABLE_PRODUCT WHERE STOCK_QUANTITY >= 1");
                     while (resultSet.next()) {
                         String columnValue = resultSet.getString("NAME");
                         ProductArrayList.add(resultSet.getInt("ID"));
