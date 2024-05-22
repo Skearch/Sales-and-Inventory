@@ -1011,24 +1011,33 @@ public class MainForm extends javax.swing.JFrame  {
             return;
         }
         
-        int id = (int) tblCategoryList.getValueAt(selectedRow, 0);
+        int response = JOptionPane.showConfirmDialog(
+                null, 
+                "Are you sure you want to delete the selected item?", 
+                "Confirmation", 
+                JOptionPane.YES_NO_OPTION
+        );
 
-        try {
-            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            String sql = "DELETE FROM TABLE_CATEGORY WHERE ID = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, id);
-            preparedStatement.executeUpdate();
-            preparedStatement.close();
-            connection.close();
-            DefaultTableModel model = (DefaultTableModel) tblCategoryList.getModel();
-            model.removeRow(selectedRow);
+        if (response == JOptionPane.YES_OPTION) {
+            int id = (int) tblCategoryList.getValueAt(selectedRow, 0);
 
-            JOptionPane.showMessageDialog(null, "Record has been deleted.", "Success", JOptionPane.INFORMATION_MESSAGE);
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        } finally {
-            updateCategoryTable();
+            try {
+                Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+                String sql = "DELETE FROM TABLE_CATEGORY WHERE ID = ?";
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setInt(1, id);
+                preparedStatement.executeUpdate();
+                preparedStatement.close();
+                connection.close();
+                DefaultTableModel model = (DefaultTableModel) tblCategoryList.getModel();
+                model.removeRow(selectedRow);
+
+                JOptionPane.showMessageDialog(null, "Record has been deleted.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            } finally {
+                updateCategoryTable();
+            }
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -1040,23 +1049,32 @@ public class MainForm extends javax.swing.JFrame  {
             return;
         }
 
-        int id = (int) tblProductList.getValueAt(selectedRow, 0);
+        int response = JOptionPane.showConfirmDialog(
+                null, 
+                "Are you sure you want to delete the selected item?", 
+                "Confirmation", 
+                JOptionPane.YES_NO_OPTION
+        );
 
-        try {
-            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            String sql = "DELETE FROM TABLE_PRODUCT WHERE ID = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, id);
-            preparedStatement.executeUpdate();
-            preparedStatement.close();
-            connection.close();
-            DefaultTableModel model = (DefaultTableModel) tblProductList.getModel();
-            model.removeRow(selectedRow);
-            JOptionPane.showMessageDialog(null, "Record has been deleted.", "Success", JOptionPane.INFORMATION_MESSAGE);
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        } finally {
-            updateProductTable();
+        if (response == JOptionPane.YES_OPTION) {
+            int id = (int) tblProductList.getValueAt(selectedRow, 0);
+
+            try {
+                Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+                String sql = "DELETE FROM TABLE_PRODUCT WHERE ID = ?";
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setInt(1, id);
+                preparedStatement.executeUpdate();
+                preparedStatement.close();
+                connection.close();
+                DefaultTableModel model = (DefaultTableModel) tblProductList.getModel();
+                model.removeRow(selectedRow);
+                JOptionPane.showMessageDialog(null, "Record has been deleted.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            } finally {
+                updateProductTable();
+            }
         }
     }//GEN-LAST:event_jButton7ActionPerformed
 
@@ -1068,27 +1086,35 @@ public class MainForm extends javax.swing.JFrame  {
             return;
         }
         
+        int response = JOptionPane.showConfirmDialog(
+                null, 
+                "Are you sure you want to delete the selected item?", 
+                "Confirmation", 
+                JOptionPane.YES_NO_OPTION
+        );
+        
         int id = (int) tblSupplierList.getValueAt(selectedRow, 0);
-
-        try {
-            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            String sql = "DELETE FROM TABLE_SUPPLIER WHERE ID = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, id);
-            preparedStatement.executeUpdate();
-            preparedStatement.close();
-            connection.close();
-            DefaultTableModel model = (DefaultTableModel) tblSupplierList.getModel();
-            model.removeRow(selectedRow);
-            JOptionPane.showMessageDialog(null, "Record has been deleted.", "Success", JOptionPane.INFORMATION_MESSAGE);
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        } finally {
-            updateSupplierTable();
+        
+        if (response == JOptionPane.YES_OPTION) {
+            try {
+                Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+                String sql = "DELETE FROM TABLE_SUPPLIER WHERE ID = ?";
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setInt(1, id);
+                preparedStatement.executeUpdate();
+                preparedStatement.close();
+                connection.close();
+                DefaultTableModel model = (DefaultTableModel) tblSupplierList.getModel();
+                model.removeRow(selectedRow);
+                JOptionPane.showMessageDialog(null, "Record has been deleted.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            } finally {
+                updateSupplierTable();
+            }
         }
     }//GEN-LAST:event_jButton10ActionPerformed
 
-    
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         int selectedRow = jTable2.getSelectedRow();
 
@@ -1097,24 +1123,33 @@ public class MainForm extends javax.swing.JFrame  {
             return;
         }
         
-        int id = (int) jTable2.getValueAt(selectedRow, 0);
+        int response = JOptionPane.showConfirmDialog(
+                null, 
+                "Are you sure you want to delete the selected item?", 
+                "Confirmation", 
+                JOptionPane.YES_NO_OPTION
+        );
 
-        try {
-            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            String sql = "DELETE FROM TABLE_SALES WHERE ID = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, id);
-            preparedStatement.executeUpdate();
-            preparedStatement.close();
-            connection.close();
-            DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
-            model.removeRow(selectedRow);
+        if (response == JOptionPane.YES_OPTION) {
+            int id = (int) jTable2.getValueAt(selectedRow, 0);
+            
+            try {
+                Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+                String sql = "DELETE FROM TABLE_SALES WHERE ID = ?";
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setInt(1, id);
+                preparedStatement.executeUpdate();
+                preparedStatement.close();
+                connection.close();
+                DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+                model.removeRow(selectedRow);
 
-            JOptionPane.showMessageDialog(null, "Record has been deleted.", "Success", JOptionPane.INFORMATION_MESSAGE);
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        } finally {
-            updateSalesTable();
+                JOptionPane.showMessageDialog(null, "Record has been deleted.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            } finally {
+                updateSalesTable();
+            }
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -1126,23 +1161,32 @@ public class MainForm extends javax.swing.JFrame  {
             return;
         }
         
-        String username = (String) jTable7.getValueAt(selectedRow, 0);
+        int response = JOptionPane.showConfirmDialog(
+                null, 
+                "Are you sure you want to delete the selected item?", 
+                "Confirmation", 
+                JOptionPane.YES_NO_OPTION
+        );
 
-        try {
-            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            String sql = "DELETE FROM TABLE_ACCOUNTS WHERE USERNAME = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, username);
-            preparedStatement.executeUpdate();
-            preparedStatement.close();
-            connection.close();
-            DefaultTableModel model = (DefaultTableModel) jTable7.getModel();
-            model.removeRow(selectedRow);
-            JOptionPane.showMessageDialog(null, "Record has been deleted.", "Success", JOptionPane.INFORMATION_MESSAGE);
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        } finally {
-            updateUsersTable();
+        if (response == JOptionPane.YES_OPTION) {
+            String username = (String) jTable7.getValueAt(selectedRow, 0);
+
+            try {
+                Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+                String sql = "DELETE FROM TABLE_ACCOUNTS WHERE USERNAME = ?";
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setString(1, username);
+                preparedStatement.executeUpdate();
+                preparedStatement.close();
+                connection.close();
+                DefaultTableModel model = (DefaultTableModel) jTable7.getModel();
+                model.removeRow(selectedRow);
+                JOptionPane.showMessageDialog(null, "Record has been deleted.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            } finally {
+                updateUsersTable();
+            }
         }
     }//GEN-LAST:event_jButton11ActionPerformed
 
@@ -1420,23 +1464,32 @@ public class MainForm extends javax.swing.JFrame  {
             return;
         }
 
-        int id = (int) tblReceivingHistoryList.getValueAt(selectedRow, 0);
+        int response = JOptionPane.showConfirmDialog(
+                null, 
+                "Are you sure you want to delete the selected item?", 
+                "Confirmation", 
+                JOptionPane.YES_NO_OPTION
+        );
 
-        try {
-            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            String sql = "DELETE FROM TABLE_RECEIVED WHERE ID = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, id);
-            preparedStatement.executeUpdate();
-            preparedStatement.close();
-            connection.close();
-            DefaultTableModel model = (DefaultTableModel) tblReceivingHistoryList.getModel();
-            model.removeRow(selectedRow);
-            JOptionPane.showMessageDialog(null, "Record has been deleted.", "Success", JOptionPane.INFORMATION_MESSAGE);
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        } finally {
-            updateReceivingTable();
+        if (response == JOptionPane.YES_OPTION) {
+            int id = (int) tblReceivingHistoryList.getValueAt(selectedRow, 0);
+
+            try {
+                Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+                String sql = "DELETE FROM TABLE_RECEIVED WHERE ID = ?";
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setInt(1, id);
+                preparedStatement.executeUpdate();
+                preparedStatement.close();
+                connection.close();
+                DefaultTableModel model = (DefaultTableModel) tblReceivingHistoryList.getModel();
+                model.removeRow(selectedRow);
+                JOptionPane.showMessageDialog(null, "Record has been deleted.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            } finally {
+                updateReceivingTable();
+            }
         }
     }//GEN-LAST:event_jButton18ActionPerformed
 

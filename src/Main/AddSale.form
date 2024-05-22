@@ -117,7 +117,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Customer"/>
+            <Property name="text" type="java.lang.String" value="Customer Name"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnAddtoList">
@@ -135,7 +135,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblProduct1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Qty"/>
+            <Property name="text" type="java.lang.String" value="Product Qty"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">

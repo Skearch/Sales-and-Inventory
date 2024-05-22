@@ -329,7 +329,16 @@ public class Receiving extends javax.swing.JFrame {
             return;
         }
         
-        model.removeRow(selectedRow);
+        int response = JOptionPane.showConfirmDialog(
+                null, 
+                "Are you sure you want to remove the selected item?", 
+                "Confirmation", 
+                JOptionPane.YES_NO_OPTION
+        );
+
+        if (response == JOptionPane.YES_OPTION) {
+            model.removeRow(selectedRow);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     public static void main(String args[]) {

@@ -48,7 +48,7 @@ public class AddSale extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Customer");
+        jLabel1.setText("Customer Name");
 
         btnAddtoList.setText("Add to Cart");
         btnAddtoList.addActionListener(new java.awt.event.ActionListener() {
@@ -63,7 +63,7 @@ public class AddSale extends javax.swing.JFrame {
             }
         });
 
-        lblProduct1.setText("Qty");
+        lblProduct1.setText("Product Qty");
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel2.setText("Sale Details");
@@ -368,7 +368,16 @@ public class AddSale extends javax.swing.JFrame {
             return;
         }
         
-        model.removeRow(selectedRow);
+        int response = JOptionPane.showConfirmDialog(
+                null, 
+                "Are you sure you want to remove the selected item?", 
+                "Confirmation", 
+                JOptionPane.YES_NO_OPTION
+        );
+
+        if (response == JOptionPane.YES_OPTION) {
+            model.removeRow(selectedRow);
+        }
     }//GEN-LAST:event_btnSave1ActionPerformed
 
     public static void main(String args[]) {
