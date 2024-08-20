@@ -236,6 +236,8 @@
                                       <Component id="btnNewSales" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="btnNewSales1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="btnNewSales2" min="-2" pref="117" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jScrollPane2" alignment="0" min="-2" pref="987" max="-2" attributes="0"/>
                               </Group>
@@ -253,6 +255,7 @@
                                   <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnNewSales" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnNewSales1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnNewSales2" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -316,6 +319,14 @@
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNewSales1ActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnNewSales2">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="View Receipt"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNewSales2ActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>

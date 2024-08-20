@@ -33,6 +33,7 @@ public class MainForm extends javax.swing.JFrame  {
         btnNewSales = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         btnNewSales1 = new javax.swing.JButton();
+        btnNewSales2 = new javax.swing.JButton();
         pnlReceiving = new javax.swing.JPanel();
         jScrollPane13 = new javax.swing.JScrollPane();
         tblReceivingHistoryList = new javax.swing.JTable();
@@ -179,6 +180,13 @@ public class MainForm extends javax.swing.JFrame  {
             }
         });
 
+        btnNewSales2.setText("View Receipt");
+        btnNewSales2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewSales2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -191,7 +199,9 @@ public class MainForm extends javax.swing.JFrame  {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnNewSales)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnNewSales1))
+                        .addComponent(btnNewSales1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnNewSales2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 987, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
@@ -204,7 +214,8 @@ public class MainForm extends javax.swing.JFrame  {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
                     .addComponent(btnNewSales)
-                    .addComponent(btnNewSales1))
+                    .addComponent(btnNewSales1)
+                    .addComponent(btnNewSales2))
                 .addContainerGap())
         );
 
@@ -637,7 +648,7 @@ public class MainForm extends javax.swing.JFrame  {
         try {
             Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM TABLE_SALES");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM RECEIPT");
 
             int columnCount = resultSet.getMetaData().getColumnCount();
             for (int i = 1; i <= columnCount; i++) {
@@ -1134,13 +1145,22 @@ public class MainForm extends javax.swing.JFrame  {
             int id = (int) jTable2.getValueAt(selectedRow, 0);
             
             try {
+                Connection connection2 = DriverManager.getConnection(URL, USER, PASSWORD);
+                String sql2 = "DELETE FROM RECEIPT_ITEMS WHERE RECEIPT_ID = ?";
+                PreparedStatement preparedStatement2 = connection2.prepareStatement(sql2);
+                preparedStatement2.setInt(1, id);
+                preparedStatement2.executeUpdate();
+                preparedStatement2.close();
+                connection2.close();
+                
                 Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-                String sql = "DELETE FROM TABLE_SALES WHERE ID = ?";
+                String sql = "DELETE FROM RECEIPT WHERE ID = ?";
                 PreparedStatement preparedStatement = connection.prepareStatement(sql);
                 preparedStatement.setInt(1, id);
                 preparedStatement.executeUpdate();
                 preparedStatement.close();
                 connection.close();
+                
                 DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
                 model.removeRow(selectedRow);
 
@@ -1245,7 +1265,7 @@ public class MainForm extends javax.swing.JFrame  {
         try {
             Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
             String columnName = jTable2.getColumnName(column);
-            String sql = "UPDATE TABLE_SALES SET " + columnName + " = ? WHERE ID = ?";
+            String sql = "UPDATE RECEIPT SET " + columnName + " = ? WHERE ID = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setObject(1, newValue);
             preparedStatement.setInt(2, id);
@@ -1497,6 +1517,19 @@ public class MainForm extends javax.swing.JFrame  {
         updateSalesTable();
     }//GEN-LAST:event_btnNewSales1ActionPerformed
 
+    private void btnNewSales2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewSales2ActionPerformed
+        int selectedRow = jTable2.getSelectedRow();
+
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Please select a row to delete.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        int id = (int) jTable2.getValueAt(selectedRow, 0);
+        
+        new ViewReceipt(id).setVisible(true);
+    }//GEN-LAST:event_btnNewSales2ActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -1508,6 +1541,7 @@ public class MainForm extends javax.swing.JFrame  {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnNewSales;
     private javax.swing.JButton btnNewSales1;
+    private javax.swing.JButton btnNewSales2;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
