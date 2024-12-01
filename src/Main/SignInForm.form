@@ -28,19 +28,15 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="39" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="lblPassword" min="-2" max="-2" attributes="0"/>
                   <Component id="lblUsername" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="btnSignin" min="-2" pref="119" max="-2" attributes="0"/>
-                      <EmptySpace pref="29" max="32767" attributes="0"/>
-                      <Component id="btnSignin2" min="-2" pref="100" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="tfUsername" alignment="0" max="32767" attributes="0"/>
+                  <Component id="tfUsername" alignment="0" pref="248" max="32767" attributes="0"/>
                   <Component id="jPasswordField1" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnSignin" alignment="0" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="39" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -56,24 +52,13 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPasswordField1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnSignin" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnSignin2" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="btnSignin" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="52" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="btnSignin">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Administrator"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSigninActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JTextField" name="tfUsername">
     </Component>
     <Component class="javax.swing.JLabel" name="lblUsername">
@@ -86,12 +71,12 @@
         <Property name="text" type="java.lang.String" value="Password"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnSignin2">
+    <Component class="javax.swing.JButton" name="btnSignin">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cashier"/>
+        <Property name="text" type="java.lang.String" value="Login"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSignin2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSigninActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="jPasswordField1">

@@ -5,9 +5,8 @@ import static Main.Databases.URL;
 import static Main.Databases.USER;
 import static Main.Databases.connection;
 import static Main.Databases.statement;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.util.Calendar;
+import java.sql.*;
+import java.util.*;
 import java.util.Date;
 import javax.swing.JOptionPane;
 

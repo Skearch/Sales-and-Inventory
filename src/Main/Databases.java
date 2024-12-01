@@ -1,8 +1,6 @@
 package Main;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 
 public class Databases {
     
@@ -12,7 +10,7 @@ public class Databases {
     public static PreparedStatement statement;
     public static ResultSet resultSet;
     
-    public static final String URL = "jdbc:derby://localhost:1527/InventorySystem";
-    public static final String USER = "administrator";
-    public static final String PASSWORD = "123";
+    public static final String URL = System.getenv("DB_URL");
+    public static final String USER = System.getenv("DB_USER");
+    public static final String PASSWORD = System.getenv("DB_PASSWORD");
 }

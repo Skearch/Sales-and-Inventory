@@ -1,8 +1,7 @@
 package Main;
 
 import static Main.Databases.*;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 import javax.swing.JOptionPane;
 public class AddCategory extends javax.swing.JFrame {
 

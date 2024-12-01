@@ -1,12 +1,7 @@
 package Main;
 import javax.swing.*;
 import static Main.Databases.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -1279,7 +1274,6 @@ public class MainForm extends javax.swing.JFrame  {
         }
     }//GEN-LAST:event_jTable2KeyReleased
 
-    
     private void jTable1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable1KeyReleased
         int keyCode = evt.getKeyCode();
         if (keyCode != 10)
