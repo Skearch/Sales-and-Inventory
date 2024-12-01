@@ -4,6 +4,7 @@ import static Main.Databases.*;
 import java.sql.*;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+import java.util.concurrent.*;
 
 public class MainForm extends javax.swing.JFrame  {
     public MainForm() {
@@ -81,7 +82,7 @@ public class MainForm extends javax.swing.JFrame  {
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addGap(78, 78, 78)
                 .addComponent(lblTabName, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(704, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,7 +131,7 @@ public class MainForm extends javax.swing.JFrame  {
             pnlInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInventoryLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -204,7 +205,7 @@ public class MainForm extends javax.swing.JFrame  {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
@@ -290,7 +291,7 @@ public class MainForm extends javax.swing.JFrame  {
             pnlReceivingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlReceivingLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+                .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlReceivingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton18)
@@ -358,7 +359,7 @@ public class MainForm extends javax.swing.JFrame  {
             pnlProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlProductLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton7)
@@ -494,7 +495,7 @@ public class MainForm extends javax.swing.JFrame  {
             pnlSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSupplierLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlSupplierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton10)
@@ -562,7 +563,7 @@ public class MainForm extends javax.swing.JFrame  {
             pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlUsersLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton11)
@@ -579,9 +580,9 @@ public class MainForm extends javax.swing.JFrame  {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tpMain, javax.swing.GroupLayout.PREFERRED_SIZE, 1101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(tpMain)
+                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -589,7 +590,7 @@ public class MainForm extends javax.swing.JFrame  {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(tpMain, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tpMain, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
@@ -623,6 +624,632 @@ public class MainForm extends javax.swing.JFrame  {
         }
     }//GEN-LAST:event_formWindowOpened
 
+    private void tpMainStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tpMainStateChanged
+        String tabSelected = tpMain.getTitleAt(tpMain.getSelectedIndex());
+        lblTabName.setText(tabSelected);
+
+        switch (tabSelected) {
+            case "Inventory":
+            updateInventoryTable();
+            break;
+            case "Sales":
+            try {
+                updateSupplierTable();
+                updateProductTable();
+
+                ProductArrayList.clear();
+                ProductNameArrayList.clear();
+                connection = DriverManager.getConnection(URL, USER, PASSWORD);
+                Statement statement2 = connection.createStatement();
+
+                resultSet = statement2.executeQuery("SELECT * FROM TABLE_PRODUCT WHERE STOCK_QUANTITY >= 1");
+                while (resultSet.next()) {
+                    String columnValue = resultSet.getString("NAME");
+                    ProductArrayList.add(resultSet.getInt("ID"));
+                    ProductNameArrayList.add(columnValue);
+                }
+
+                resultSet.close();
+                statement2.close();
+            } catch (SQLException ex) {}
+
+            updateSalesTable();
+            break;
+            case "Receiving":
+            try {
+                updateReceivingTable();
+
+                updateSupplierTable();
+                updateProductTable();
+
+                // jComboBox1
+                SupplierArrayList.clear();
+                SupplierNameArrayList.clear();
+                connection = DriverManager.getConnection(URL, USER, PASSWORD);
+                Statement statement = connection.createStatement();
+
+                resultSet = statement.executeQuery("SELECT * FROM TABLE_SUPPLIER");
+                while (resultSet.next()) {
+                    String columnValue = resultSet.getString("NAME");
+                    SupplierArrayList.add(resultSet.getInt("ID"));
+                    SupplierNameArrayList.add(columnValue);
+                }
+
+                resultSet.close();
+                statement.close();
+
+                // jComboBox2
+                ProductArrayList.clear();
+                ProductNameArrayList.clear();
+                connection = DriverManager.getConnection(URL, USER, PASSWORD);
+                Statement statement2 = connection.createStatement();
+
+                resultSet = statement2.executeQuery("SELECT * FROM TABLE_PRODUCT");
+                while (resultSet.next()) {
+                    String columnValue = resultSet.getString("NAME");
+                    ProductArrayList.add(resultSet.getInt("ID"));
+                    ProductNameArrayList.add(columnValue);
+                }
+
+                resultSet.close();
+                statement2.close();
+            } catch (SQLException ex) {}
+
+            break;
+            case "Category":
+            updateCategoryTable();
+            break;
+            case "Product":
+            CategoryArrayList.clear();
+            CategoryNameArrayList.clear();
+
+            updateProductTable();
+            try {
+                connection = DriverManager.getConnection(URL, USER, PASSWORD);
+                Statement statement = connection.createStatement();
+
+                resultSet = statement.executeQuery("SELECT * FROM TABLE_CATEGORY");
+                while (resultSet.next()) {
+                    int idValue = resultSet.getInt("ID");
+                    String columnValue = resultSet.getString("NAME");
+                    CategoryArrayList.add(idValue);
+                    CategoryNameArrayList.add(columnValue);
+                }
+
+                resultSet.close();
+                statement.close();
+            } catch (SQLException ex) { }
+            break;
+            case "Supplier":
+            updateSupplierTable();
+            break;
+            case "Users":
+            updateUsersTable();
+            break;
+        }
+    }//GEN-LAST:event_tpMainStateChanged
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        updateUsersTable();
+    }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        new AddUsers().setVisible(true);
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        int selectedRow = jTable7.getSelectedRow();
+
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Please select a row to delete.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        int response = JOptionPane.showConfirmDialog(
+            null,
+            "Are you sure you want to delete the selected item?",
+            "Confirmation",
+            JOptionPane.YES_NO_OPTION
+        );
+
+        if (response == JOptionPane.YES_OPTION) {
+            String username = (String) jTable7.getValueAt(selectedRow, 0);
+
+            try {
+                Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+                String sql = "DELETE FROM TABLE_ACCOUNTS WHERE USERNAME = ?";
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setString(1, username);
+                preparedStatement.executeUpdate();
+                preparedStatement.close();
+                connection.close();
+                DefaultTableModel model = (DefaultTableModel) jTable7.getModel();
+                model.removeRow(selectedRow);
+                JOptionPane.showMessageDialog(null, "Record has been deleted.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            } finally {
+                updateUsersTable();
+            }
+        }
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jTable7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable7KeyReleased
+
+        int keyCode = evt.getKeyCode();
+        if (keyCode != 10)
+        return;
+
+        int row = jTable7.getSelectedRow();
+        int column = jTable7.getSelectedColumn();
+
+        if (row == -1)
+        return;
+
+        DefaultTableModel model = (DefaultTableModel) jTable7.getModel();
+        Object newValue = model.getValueAt(row, column);
+        String username = (String) model.getValueAt(row, 0);
+
+        try {
+            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            String columnName = jTable7.getColumnName(column);
+            String sql = "UPDATE TABLE_ACCOUNTS SET " + columnName + " = ? WHERE USERNAME = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setObject(1, newValue);
+            preparedStatement.setString(2, username);
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            updateUsersTable();
+        }
+    }//GEN-LAST:event_jTable7KeyReleased
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        updateSupplierTable();
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        new AddSupplier().setVisible(true);
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void tblSupplierListKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblSupplierListKeyReleased
+        int keyCode = evt.getKeyCode();
+        if (keyCode != 10)
+        return;
+
+        int row = tblSupplierList.getSelectedRow();
+        int column = tblSupplierList.getSelectedColumn();
+
+        if (row == -1)
+        return;
+
+        DefaultTableModel model = (DefaultTableModel) tblSupplierList.getModel();
+        Object newValue = model.getValueAt(row, column);
+        int id = (int) model.getValueAt(row, 0);
+
+        try {
+            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            String columnName = tblSupplierList.getColumnName(column);
+            String sql = "UPDATE TABLE_SUPPLIER SET " + columnName + " = ? WHERE ID = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setObject(1, newValue);
+            preparedStatement.setInt(2, id);
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            updateSupplierTable();
+        }
+    }//GEN-LAST:event_tblSupplierListKeyReleased
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        int selectedRow = tblSupplierList.getSelectedRow();
+
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Please select a row to delete.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        int response = JOptionPane.showConfirmDialog(
+            null,
+            "Are you sure you want to delete the selected item?",
+            "Confirmation",
+            JOptionPane.YES_NO_OPTION
+        );
+
+        int id = (int) tblSupplierList.getValueAt(selectedRow, 0);
+
+        if (response == JOptionPane.YES_OPTION) {
+            try {
+                Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+                String sql = "DELETE FROM TABLE_SUPPLIER WHERE ID = ?";
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setInt(1, id);
+                preparedStatement.executeUpdate();
+                preparedStatement.close();
+                connection.close();
+                DefaultTableModel model = (DefaultTableModel) tblSupplierList.getModel();
+                model.removeRow(selectedRow);
+                JOptionPane.showMessageDialog(null, "Record has been deleted.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            } finally {
+                updateSupplierTable();
+            }
+        }
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        updateCategoryTable();
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        new AddCategory().setVisible(true);
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void tblCategoryListKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblCategoryListKeyReleased
+        int keyCode = evt.getKeyCode();
+        if (keyCode != 10)
+        return;
+
+        int row = tblCategoryList.getSelectedRow();
+        int column = tblCategoryList.getSelectedColumn();
+
+        if (row == -1)
+        return;
+
+        DefaultTableModel model = (DefaultTableModel) tblCategoryList.getModel();
+        Object newValue = model.getValueAt(row, column);
+        int id = (int) model.getValueAt(row, 0);
+
+        try {
+            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            String columnName = tblCategoryList.getColumnName(column);
+            String sql = "UPDATE TABLE_CATEGORY SET " + columnName + " = ? WHERE ID = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setObject(1, newValue);
+            preparedStatement.setInt(2, id);
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            updateCategoryTable();
+        }
+    }//GEN-LAST:event_tblCategoryListKeyReleased
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        int selectedRow = tblCategoryList.getSelectedRow();
+
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Please select a row to delete.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        int response = JOptionPane.showConfirmDialog(
+            null,
+            "Are you sure you want to delete the selected item?",
+            "Confirmation",
+            JOptionPane.YES_NO_OPTION
+        );
+
+        if (response == JOptionPane.YES_OPTION) {
+            int id = (int) tblCategoryList.getValueAt(selectedRow, 0);
+
+            try {
+                Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+                String sql = "DELETE FROM TABLE_CATEGORY WHERE ID = ?";
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setInt(1, id);
+                preparedStatement.executeUpdate();
+                preparedStatement.close();
+                connection.close();
+                DefaultTableModel model = (DefaultTableModel) tblCategoryList.getModel();
+                model.removeRow(selectedRow);
+
+                JOptionPane.showMessageDialog(null, "Record has been deleted.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            } finally {
+                updateCategoryTable();
+            }
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        updateProductTable();
+    }//GEN-LAST:event_jButton17ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        new AddProduct().setVisible(true);
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void tblProductListKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblProductListKeyReleased
+        int keyCode = evt.getKeyCode();
+        if (keyCode != 10)
+        return;
+
+        int row = tblProductList.getSelectedRow();
+        int column = tblProductList.getSelectedColumn();
+
+        if (row == -1)
+        return;
+
+        DefaultTableModel model = (DefaultTableModel) tblProductList.getModel();
+        Object newValue = model.getValueAt(row, column);
+        int id = (int) model.getValueAt(row, 0);
+
+        try {
+            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            String columnName = tblProductList.getColumnName(column);
+            String sql = "UPDATE TABLE_PRODUCT SET " + columnName + " = ? WHERE ID = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setObject(1, newValue);
+            preparedStatement.setInt(2, id);
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            updateProductTable();
+        }
+    }//GEN-LAST:event_tblProductListKeyReleased
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        int selectedRow = tblProductList.getSelectedRow();
+
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Please select a row to delete.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        int response = JOptionPane.showConfirmDialog(
+            null,
+            "Are you sure you want to delete the selected item?",
+            "Confirmation",
+            JOptionPane.YES_NO_OPTION
+        );
+
+        if (response == JOptionPane.YES_OPTION) {
+            int id = (int) tblProductList.getValueAt(selectedRow, 0);
+
+            try {
+                Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+                String sql = "DELETE FROM TABLE_PRODUCT WHERE ID = ?";
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setInt(1, id);
+                preparedStatement.executeUpdate();
+                preparedStatement.close();
+                connection.close();
+                DefaultTableModel model = (DefaultTableModel) tblProductList.getModel();
+                model.removeRow(selectedRow);
+                JOptionPane.showMessageDialog(null, "Record has been deleted.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            } finally {
+                updateProductTable();
+            }
+        }
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        new Receiving().setVisible(true);
+    }//GEN-LAST:event_jButton20ActionPerformed
+
+    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+        updateReceivingTable();
+    }//GEN-LAST:event_jButton19ActionPerformed
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        int selectedRow = tblReceivingHistoryList.getSelectedRow();
+
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Please select a row to delete.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        int response = JOptionPane.showConfirmDialog(
+            null,
+            "Are you sure you want to delete the selected item?",
+            "Confirmation",
+            JOptionPane.YES_NO_OPTION
+        );
+
+        if (response == JOptionPane.YES_OPTION) {
+            int id = (int) tblReceivingHistoryList.getValueAt(selectedRow, 0);
+
+            try {
+                Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+                String sql = "DELETE FROM TABLE_RECEIVED WHERE ID = ?";
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setInt(1, id);
+                preparedStatement.executeUpdate();
+                preparedStatement.close();
+                connection.close();
+                DefaultTableModel model = (DefaultTableModel) tblReceivingHistoryList.getModel();
+                model.removeRow(selectedRow);
+                JOptionPane.showMessageDialog(null, "Record has been deleted.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            } finally {
+                updateReceivingTable();
+            }
+        }
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void tblReceivingHistoryListKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblReceivingHistoryListKeyReleased
+        int keyCode = evt.getKeyCode();
+        if (keyCode != 10)
+        return;
+
+        int row = tblReceivingHistoryList.getSelectedRow();
+        int column = tblReceivingHistoryList.getSelectedColumn();
+
+        if (row == -1)
+        return;
+
+        DefaultTableModel model = (DefaultTableModel) tblReceivingHistoryList.getModel();
+        Object newValue = model.getValueAt(row, column);
+        int id = (int) model.getValueAt(row, 0);
+
+        try {
+            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            String columnName = tblReceivingHistoryList.getColumnName(column);
+            String sql = "UPDATE TABLE_RECEIVED SET " + columnName + " = ? WHERE ID = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setObject(1, newValue);
+            preparedStatement.setInt(2, id);
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            updateReceivingTable();
+        }
+    }//GEN-LAST:event_tblReceivingHistoryListKeyReleased
+
+    private void btnNewSales2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewSales2ActionPerformed
+        int selectedRow = jTable2.getSelectedRow();
+
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Please select a row to delete.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        int id = (int) jTable2.getValueAt(selectedRow, 0);
+
+        new ViewReceipt(id).setVisible(true);
+    }//GEN-LAST:event_btnNewSales2ActionPerformed
+
+    private void btnNewSales1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewSales1ActionPerformed
+        updateSalesTable();
+    }//GEN-LAST:event_btnNewSales1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        int selectedRow = jTable2.getSelectedRow();
+
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Please select a row to delete.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        int response = JOptionPane.showConfirmDialog(
+            null,
+            "Are you sure you want to delete the selected item?",
+            "Confirmation",
+            JOptionPane.YES_NO_OPTION
+        );
+
+        if (response == JOptionPane.YES_OPTION) {
+            int id = (int) jTable2.getValueAt(selectedRow, 0);
+
+            try {
+                Connection connection2 = DriverManager.getConnection(URL, USER, PASSWORD);
+                String sql2 = "DELETE FROM RECEIPT_ITEMS WHERE RECEIPT_ID = ?";
+                PreparedStatement preparedStatement2 = connection2.prepareStatement(sql2);
+                preparedStatement2.setInt(1, id);
+                preparedStatement2.executeUpdate();
+                preparedStatement2.close();
+                connection2.close();
+
+                Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+                String sql = "DELETE FROM RECEIPT WHERE ID = ?";
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setInt(1, id);
+                preparedStatement.executeUpdate();
+                preparedStatement.close();
+                connection.close();
+
+                DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+                model.removeRow(selectedRow);
+
+                JOptionPane.showMessageDialog(null, "Record has been deleted.", "Success", JOptionPane.INFORMATION_MESSAGE);
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            } finally {
+                updateSalesTable();
+            }
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void btnNewSalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewSalesActionPerformed
+        new AddSale().setVisible(true);
+    }//GEN-LAST:event_btnNewSalesActionPerformed
+
+    private void jTable2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable2KeyReleased
+        int keyCode = evt.getKeyCode();
+        if (keyCode != 10)
+        return;
+
+        int row = jTable2.getSelectedRow();
+        int column = jTable2.getSelectedColumn();
+
+        if (row == -1)
+        return;
+
+        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+        Object newValue = model.getValueAt(row, column);
+        int id = (int) model.getValueAt(row, 0);
+
+        try {
+            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            String columnName = jTable2.getColumnName(column);
+            String sql = "UPDATE RECEIPT SET " + columnName + " = ? WHERE ID = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setObject(1, newValue);
+            preparedStatement.setInt(2, id);
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            updateSalesTable();
+        }
+    }//GEN-LAST:event_jTable2KeyReleased
+
+    private void jTable1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable1KeyReleased
+        int keyCode = evt.getKeyCode();
+        if (keyCode != 10)
+        return;
+
+        int row = jTable1.getSelectedRow();
+        int column = jTable1.getSelectedColumn();
+
+        if (row == -1)
+        return;
+
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        Object newValue = model.getValueAt(row, column);
+        int id = (int) model.getValueAt(row, 0);
+
+        try {
+            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+            String columnName = jTable1.getColumnName(column);
+            String sql = "UPDATE TABLE_PRODUCT SET " + columnName + " = ? WHERE ID = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setObject(1, newValue);
+            preparedStatement.setInt(2, id);
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+        updateCategoryTable();
+    }//GEN-LAST:event_jTable1KeyReleased
+
+    ExecutorService executor = Executors.newSingleThreadExecutor();
+    
     public static ArrayList<Integer> CategoryArrayList = new ArrayList<>();
     public static ArrayList<String> CategoryNameArrayList = new ArrayList<>();
     
@@ -900,630 +1527,6 @@ public class MainForm extends javax.swing.JFrame  {
         }
     }
     
-    private void tpMainStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tpMainStateChanged
-        String tabSelected = tpMain.getTitleAt(tpMain.getSelectedIndex());
-        lblTabName.setText(tabSelected);
-        
-        switch (tabSelected) {
-            case "Inventory":
-                updateInventoryTable();
-                break;
-            case "Sales":
-                try {
-                    updateSupplierTable();
-                    updateProductTable();
-
-                    ProductArrayList.clear();
-                    ProductNameArrayList.clear();
-                    connection = DriverManager.getConnection(URL, USER, PASSWORD);
-                    Statement statement2 = connection.createStatement();
-
-                    resultSet = statement2.executeQuery("SELECT * FROM TABLE_PRODUCT WHERE STOCK_QUANTITY >= 1");
-                    while (resultSet.next()) {
-                        String columnValue = resultSet.getString("NAME");
-                        ProductArrayList.add(resultSet.getInt("ID"));
-                        ProductNameArrayList.add(columnValue);
-                    }
-
-                    resultSet.close();
-                    statement2.close();
-                } catch (SQLException ex) {}
-                
-                updateSalesTable();
-                break;
-            case "Receiving":
-                try {
-                    updateReceivingTable();
-                    
-                    updateSupplierTable();
-                    updateProductTable();
-
-                    // jComboBox1
-                    SupplierArrayList.clear();
-                    SupplierNameArrayList.clear();
-                    connection = DriverManager.getConnection(URL, USER, PASSWORD);
-                    Statement statement = connection.createStatement();
-
-                    resultSet = statement.executeQuery("SELECT * FROM TABLE_SUPPLIER");
-                    while (resultSet.next()) {
-                        String columnValue = resultSet.getString("NAME");
-                        SupplierArrayList.add(resultSet.getInt("ID"));
-                        SupplierNameArrayList.add(columnValue);
-                    }
-
-                    resultSet.close();
-                    statement.close();
-
-                    // jComboBox2
-                    ProductArrayList.clear();
-                    ProductNameArrayList.clear();
-                    connection = DriverManager.getConnection(URL, USER, PASSWORD);
-                    Statement statement2 = connection.createStatement();
-
-                    resultSet = statement2.executeQuery("SELECT * FROM TABLE_PRODUCT");
-                    while (resultSet.next()) {
-                        String columnValue = resultSet.getString("NAME");
-                        ProductArrayList.add(resultSet.getInt("ID"));
-                        ProductNameArrayList.add(columnValue);
-                    }
-
-                    resultSet.close();
-                    statement2.close();
-                } catch (SQLException ex) {}
-
-                break;
-            case "Category":
-                updateCategoryTable();
-                break;
-            case "Product":
-                CategoryArrayList.clear();
-                CategoryNameArrayList.clear();
-                
-                updateProductTable();
-                try {
-                    connection = DriverManager.getConnection(URL, USER, PASSWORD);
-                    Statement statement = connection.createStatement();
-
-                    resultSet = statement.executeQuery("SELECT * FROM TABLE_CATEGORY");
-                    while (resultSet.next()) {
-                        int idValue = resultSet.getInt("ID");
-                        String columnValue = resultSet.getString("NAME");
-                        CategoryArrayList.add(idValue);
-                        CategoryNameArrayList.add(columnValue);
-                    }
-
-                    resultSet.close();
-                    statement.close();
-                } catch (SQLException ex) { }
-                break;
-            case "Supplier":
-                updateSupplierTable();
-                break;
-            case "Users":
-                updateUsersTable();
-                break;
-        }
-    }//GEN-LAST:event_tpMainStateChanged
-
-    private void btnNewSalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewSalesActionPerformed
-        new AddSale().setVisible(true);
-    }//GEN-LAST:event_btnNewSalesActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        int selectedRow = tblCategoryList.getSelectedRow();
-
-        if (selectedRow == -1) {
-            JOptionPane.showMessageDialog(this, "Please select a row to delete.", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        
-        int response = JOptionPane.showConfirmDialog(
-                null, 
-                "Are you sure you want to delete the selected item?", 
-                "Confirmation", 
-                JOptionPane.YES_NO_OPTION
-        );
-
-        if (response == JOptionPane.YES_OPTION) {
-            int id = (int) tblCategoryList.getValueAt(selectedRow, 0);
-
-            try {
-                Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-                String sql = "DELETE FROM TABLE_CATEGORY WHERE ID = ?";
-                PreparedStatement preparedStatement = connection.prepareStatement(sql);
-                preparedStatement.setInt(1, id);
-                preparedStatement.executeUpdate();
-                preparedStatement.close();
-                connection.close();
-                DefaultTableModel model = (DefaultTableModel) tblCategoryList.getModel();
-                model.removeRow(selectedRow);
-
-                JOptionPane.showMessageDialog(null, "Record has been deleted.", "Success", JOptionPane.INFORMATION_MESSAGE);
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            } finally {
-                updateCategoryTable();
-            }
-        }
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        int selectedRow = tblProductList.getSelectedRow();
-        
-        if (selectedRow == -1) {
-            JOptionPane.showMessageDialog(this, "Please select a row to delete.", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        int response = JOptionPane.showConfirmDialog(
-                null, 
-                "Are you sure you want to delete the selected item?", 
-                "Confirmation", 
-                JOptionPane.YES_NO_OPTION
-        );
-
-        if (response == JOptionPane.YES_OPTION) {
-            int id = (int) tblProductList.getValueAt(selectedRow, 0);
-
-            try {
-                Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-                String sql = "DELETE FROM TABLE_PRODUCT WHERE ID = ?";
-                PreparedStatement preparedStatement = connection.prepareStatement(sql);
-                preparedStatement.setInt(1, id);
-                preparedStatement.executeUpdate();
-                preparedStatement.close();
-                connection.close();
-                DefaultTableModel model = (DefaultTableModel) tblProductList.getModel();
-                model.removeRow(selectedRow);
-                JOptionPane.showMessageDialog(null, "Record has been deleted.", "Success", JOptionPane.INFORMATION_MESSAGE);
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            } finally {
-                updateProductTable();
-            }
-        }
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        int selectedRow = tblSupplierList.getSelectedRow();
-
-        if (selectedRow == -1) {
-            JOptionPane.showMessageDialog(this, "Please select a row to delete.", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        
-        int response = JOptionPane.showConfirmDialog(
-                null, 
-                "Are you sure you want to delete the selected item?", 
-                "Confirmation", 
-                JOptionPane.YES_NO_OPTION
-        );
-        
-        int id = (int) tblSupplierList.getValueAt(selectedRow, 0);
-        
-        if (response == JOptionPane.YES_OPTION) {
-            try {
-                Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-                String sql = "DELETE FROM TABLE_SUPPLIER WHERE ID = ?";
-                PreparedStatement preparedStatement = connection.prepareStatement(sql);
-                preparedStatement.setInt(1, id);
-                preparedStatement.executeUpdate();
-                preparedStatement.close();
-                connection.close();
-                DefaultTableModel model = (DefaultTableModel) tblSupplierList.getModel();
-                model.removeRow(selectedRow);
-                JOptionPane.showMessageDialog(null, "Record has been deleted.", "Success", JOptionPane.INFORMATION_MESSAGE);
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            } finally {
-                updateSupplierTable();
-            }
-        }
-    }//GEN-LAST:event_jButton10ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        int selectedRow = jTable2.getSelectedRow();
-
-        if (selectedRow == -1) {
-            JOptionPane.showMessageDialog(this, "Please select a row to delete.", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        
-        int response = JOptionPane.showConfirmDialog(
-                null, 
-                "Are you sure you want to delete the selected item?", 
-                "Confirmation", 
-                JOptionPane.YES_NO_OPTION
-        );
-
-        if (response == JOptionPane.YES_OPTION) {
-            int id = (int) jTable2.getValueAt(selectedRow, 0);
-            
-            try {
-                Connection connection2 = DriverManager.getConnection(URL, USER, PASSWORD);
-                String sql2 = "DELETE FROM RECEIPT_ITEMS WHERE RECEIPT_ID = ?";
-                PreparedStatement preparedStatement2 = connection2.prepareStatement(sql2);
-                preparedStatement2.setInt(1, id);
-                preparedStatement2.executeUpdate();
-                preparedStatement2.close();
-                connection2.close();
-                
-                Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-                String sql = "DELETE FROM RECEIPT WHERE ID = ?";
-                PreparedStatement preparedStatement = connection.prepareStatement(sql);
-                preparedStatement.setInt(1, id);
-                preparedStatement.executeUpdate();
-                preparedStatement.close();
-                connection.close();
-                
-                DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
-                model.removeRow(selectedRow);
-
-                JOptionPane.showMessageDialog(null, "Record has been deleted.", "Success", JOptionPane.INFORMATION_MESSAGE);
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            } finally {
-                updateSalesTable();
-            }
-        }
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        int selectedRow = jTable7.getSelectedRow();
-
-        if (selectedRow == -1) {
-            JOptionPane.showMessageDialog(this, "Please select a row to delete.", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        
-        int response = JOptionPane.showConfirmDialog(
-                null, 
-                "Are you sure you want to delete the selected item?", 
-                "Confirmation", 
-                JOptionPane.YES_NO_OPTION
-        );
-
-        if (response == JOptionPane.YES_OPTION) {
-            String username = (String) jTable7.getValueAt(selectedRow, 0);
-
-            try {
-                Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-                String sql = "DELETE FROM TABLE_ACCOUNTS WHERE USERNAME = ?";
-                PreparedStatement preparedStatement = connection.prepareStatement(sql);
-                preparedStatement.setString(1, username);
-                preparedStatement.executeUpdate();
-                preparedStatement.close();
-                connection.close();
-                DefaultTableModel model = (DefaultTableModel) jTable7.getModel();
-                model.removeRow(selectedRow);
-                JOptionPane.showMessageDialog(null, "Record has been deleted.", "Success", JOptionPane.INFORMATION_MESSAGE);
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            } finally {
-                updateUsersTable();
-            }
-        }
-    }//GEN-LAST:event_jButton11ActionPerformed
-
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        new AddUsers().setVisible(true);
-    }//GEN-LAST:event_jButton12ActionPerformed
-
-    private void jTable7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable7KeyReleased
-        
-        int keyCode = evt.getKeyCode();
-        if (keyCode != 10)
-            return;
-        
-        int row = jTable7.getSelectedRow();
-        int column = jTable7.getSelectedColumn();
-
-        if (row == -1)
-            return;
-
-        DefaultTableModel model = (DefaultTableModel) jTable7.getModel();
-        Object newValue = model.getValueAt(row, column);
-        String username = (String) model.getValueAt(row, 0);
-
-        try {
-            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            String columnName = jTable7.getColumnName(column);
-            String sql = "UPDATE TABLE_ACCOUNTS SET " + columnName + " = ? WHERE USERNAME = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setObject(1, newValue);
-            preparedStatement.setString(2, username);
-            preparedStatement.executeUpdate();
-            preparedStatement.close();
-            connection.close();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        } finally {
-            updateUsersTable();
-        }
-    }//GEN-LAST:event_jTable7KeyReleased
-
-    private void jTable2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable2KeyReleased
-        int keyCode = evt.getKeyCode();
-        if (keyCode != 10)
-            return;
-        
-        int row = jTable2.getSelectedRow();
-        int column = jTable2.getSelectedColumn();
-
-        if (row == -1)
-            return;
-        
-        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
-        Object newValue = model.getValueAt(row, column);
-        int id = (int) model.getValueAt(row, 0);
-
-        try {
-            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            String columnName = jTable2.getColumnName(column);
-            String sql = "UPDATE RECEIPT SET " + columnName + " = ? WHERE ID = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setObject(1, newValue);
-            preparedStatement.setInt(2, id);
-            preparedStatement.executeUpdate();
-            preparedStatement.close();
-            connection.close();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        } finally {
-            updateSalesTable();
-        }
-    }//GEN-LAST:event_jTable2KeyReleased
-
-    private void jTable1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable1KeyReleased
-        int keyCode = evt.getKeyCode();
-        if (keyCode != 10)
-            return;
-        
-        int row = jTable1.getSelectedRow();
-        int column = jTable1.getSelectedColumn();
-
-        if (row == -1)
-            return;
-        
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        Object newValue = model.getValueAt(row, column);
-        int id = (int) model.getValueAt(row, 0);
-
-        try {
-            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            String columnName = jTable1.getColumnName(column);
-            String sql = "UPDATE TABLE_PRODUCT SET " + columnName + " = ? WHERE ID = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setObject(1, newValue);
-            preparedStatement.setInt(2, id);
-            preparedStatement.executeUpdate();
-            preparedStatement.close();
-            connection.close();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        
-        updateCategoryTable();
-    }//GEN-LAST:event_jTable1KeyReleased
-
-    private void tblSupplierListKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblSupplierListKeyReleased
-        int keyCode = evt.getKeyCode();
-        if (keyCode != 10)
-            return;
-        
-        int row = tblSupplierList.getSelectedRow();
-        int column = tblSupplierList.getSelectedColumn();
-
-        if (row == -1)
-            return;
-        
-        DefaultTableModel model = (DefaultTableModel) tblSupplierList.getModel();
-        Object newValue = model.getValueAt(row, column);
-        int id = (int) model.getValueAt(row, 0);
-
-        try {
-            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            String columnName = tblSupplierList.getColumnName(column);
-            String sql = "UPDATE TABLE_SUPPLIER SET " + columnName + " = ? WHERE ID = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setObject(1, newValue);
-            preparedStatement.setInt(2, id);
-            preparedStatement.executeUpdate();
-            preparedStatement.close();
-            connection.close();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        } finally {
-            updateSupplierTable();
-        }
-    }//GEN-LAST:event_tblSupplierListKeyReleased
-
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        new AddSupplier().setVisible(true);
-    }//GEN-LAST:event_jButton13ActionPerformed
-
-    private void tblCategoryListKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblCategoryListKeyReleased
-        int keyCode = evt.getKeyCode();
-        if (keyCode != 10)
-            return;
-        
-        int row = tblCategoryList.getSelectedRow();
-        int column = tblCategoryList.getSelectedColumn();
-
-        if (row == -1)
-            return;
-        
-        DefaultTableModel model = (DefaultTableModel) tblCategoryList.getModel();
-        Object newValue = model.getValueAt(row, column);
-        int id = (int) model.getValueAt(row, 0);
-
-        try {
-            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            String columnName = tblCategoryList.getColumnName(column);
-            String sql = "UPDATE TABLE_CATEGORY SET " + columnName + " = ? WHERE ID = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setObject(1, newValue);
-            preparedStatement.setInt(2, id);
-            preparedStatement.executeUpdate();
-            preparedStatement.close();
-            connection.close();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        } finally {
-            updateCategoryTable();
-        }
-    }//GEN-LAST:event_tblCategoryListKeyReleased
-
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        new AddCategory().setVisible(true);
-    }//GEN-LAST:event_jButton9ActionPerformed
-
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        updateCategoryTable();
-    }//GEN-LAST:event_jButton14ActionPerformed
-
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        updateSupplierTable();
-    }//GEN-LAST:event_jButton15ActionPerformed
-
-    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        updateUsersTable();
-    }//GEN-LAST:event_jButton16ActionPerformed
-
-    private void tblProductListKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblProductListKeyReleased
-        int keyCode = evt.getKeyCode();
-        if (keyCode != 10)
-            return;
-        
-        int row = tblProductList.getSelectedRow();
-        int column = tblProductList.getSelectedColumn();
-
-        if (row == -1)
-            return;
-        
-        DefaultTableModel model = (DefaultTableModel) tblProductList.getModel();
-        Object newValue = model.getValueAt(row, column);
-        int id = (int) model.getValueAt(row, 0);
-        
-        try {
-            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            String columnName = tblProductList.getColumnName(column);
-            String sql = "UPDATE TABLE_PRODUCT SET " + columnName + " = ? WHERE ID = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setObject(1, newValue);
-            preparedStatement.setInt(2, id);
-            preparedStatement.executeUpdate();
-            preparedStatement.close();
-            connection.close();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        } finally {
-            updateProductTable();
-        }
-    }//GEN-LAST:event_tblProductListKeyReleased
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-       new AddProduct().setVisible(true);
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        updateProductTable();
-    }//GEN-LAST:event_jButton17ActionPerformed
-
-    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-        new Receiving().setVisible(true);
-    }//GEN-LAST:event_jButton20ActionPerformed
-
-    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-        updateReceivingTable();
-    }//GEN-LAST:event_jButton19ActionPerformed
-
-    private void tblReceivingHistoryListKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblReceivingHistoryListKeyReleased
-        int keyCode = evt.getKeyCode();
-        if (keyCode != 10)
-            return;
-        
-        int row = tblReceivingHistoryList.getSelectedRow();
-        int column = tblReceivingHistoryList.getSelectedColumn();
-
-        if (row == -1)
-            return;
-        
-        DefaultTableModel model = (DefaultTableModel) tblReceivingHistoryList.getModel();
-        Object newValue = model.getValueAt(row, column);
-        int id = (int) model.getValueAt(row, 0);
-
-        try {
-            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            String columnName = tblReceivingHistoryList.getColumnName(column);
-            String sql = "UPDATE TABLE_RECEIVED SET " + columnName + " = ? WHERE ID = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setObject(1, newValue);
-            preparedStatement.setInt(2, id);
-            preparedStatement.executeUpdate();
-            preparedStatement.close();
-            connection.close();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        } finally {
-            updateReceivingTable();
-        }
-    }//GEN-LAST:event_tblReceivingHistoryListKeyReleased
-
-    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        int selectedRow = tblReceivingHistoryList.getSelectedRow();
-        
-        if (selectedRow == -1) {
-            JOptionPane.showMessageDialog(this, "Please select a row to delete.", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        int response = JOptionPane.showConfirmDialog(
-                null, 
-                "Are you sure you want to delete the selected item?", 
-                "Confirmation", 
-                JOptionPane.YES_NO_OPTION
-        );
-
-        if (response == JOptionPane.YES_OPTION) {
-            int id = (int) tblReceivingHistoryList.getValueAt(selectedRow, 0);
-
-            try {
-                Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
-                String sql = "DELETE FROM TABLE_RECEIVED WHERE ID = ?";
-                PreparedStatement preparedStatement = connection.prepareStatement(sql);
-                preparedStatement.setInt(1, id);
-                preparedStatement.executeUpdate();
-                preparedStatement.close();
-                connection.close();
-                DefaultTableModel model = (DefaultTableModel) tblReceivingHistoryList.getModel();
-                model.removeRow(selectedRow);
-                JOptionPane.showMessageDialog(null, "Record has been deleted.", "Success", JOptionPane.INFORMATION_MESSAGE);
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            } finally {
-                updateReceivingTable();
-            }
-        }
-    }//GEN-LAST:event_jButton18ActionPerformed
-
-    private void btnNewSales1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewSales1ActionPerformed
-        updateSalesTable();
-    }//GEN-LAST:event_btnNewSales1ActionPerformed
-
-    private void btnNewSales2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewSales2ActionPerformed
-        int selectedRow = jTable2.getSelectedRow();
-
-        if (selectedRow == -1) {
-            JOptionPane.showMessageDialog(this, "Please select a row to delete.", "Warning", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        
-        int id = (int) jTable2.getValueAt(selectedRow, 0);
-        
-        new ViewReceipt(id).setVisible(true);
-    }//GEN-LAST:event_btnNewSales2ActionPerformed
-
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
